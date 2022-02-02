@@ -44,7 +44,7 @@ end
 
 wait(2)
 
-if plr == owner then
+if plr == true then
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Seller Status: 👑"; 
 		Text = "Seller ".. owner .. "👑 is online";
