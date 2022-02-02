@@ -1,0 +1,52 @@
+local owner = "K1ngBlitzy"
+local plr = game:GetService("Players")[owner]
+local me = game:GetService("Players").LocalPlayer.Name
+local userId = game:GetService("Players").LocalPlayer.userId
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size420x420
+local image = game:GetService("Players"):GetUserThumbnailAsync(userId, thumbType, thumbSize)
+
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Welcome".. me; 
+	Text = "Thank you for using Alt Control. Type .cmds if you're lost.";
+	Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
+	Duration = 10;
+})
+
+wait(4)
+
+if me == owner then
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Seller Status:"; 
+		Text = "You are the Seller.";
+		Icon = image;
+		Duration = 12;
+	})
+else
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Seller Status:"; 
+		Text = "You are an Seller.";
+		Icon = image;
+		Duration = 12;
+	})
+end
+
+
+wait(4)
+
+if plr == true then
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Seller Status:"; 
+	Text = "Seller ".. owner .." is online";
+	Icon = image;
+	Duration = 10;
+	})
+else
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Seller Status:"; 
+		Text = "Seller ".. owner .." is offline";
+		Icon = image;
+		Duration = 10;
+	})
+end
