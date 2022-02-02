@@ -1,48 +1,57 @@
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size420x420
 print[[ --
 
-   ____ _______ ______ _   _    _____ ____  _   _ _______ _____   ____  _      
-  / __ \__   __|  ____| \ | |  / ____/ __ \| \ | |__   __|  __ \ / __ \| |     
- | |  | | | |  | |__  |  \| | | |   | |  | |  \| |  | |  | |__) | |  | | |     
- | |  | | | |  |  __| | . ` | | |   | |  | | . ` |  | |  |  _  /| |  | | |     
- | |__| | | |  | |____| |\  | | |___| |__| | |\  |  | |  | | \ \| |__| | |____ 
-  \____/  |_|  |______|_| \_|  \_____\____/|_| \_|  |_|  |_|  \_\\____/|______|
-                                                   By: Blitzy & Ashley    
-
-----=> Alt/Seller Controls <=---
-
-.bring / .bringalts   -   Brings the alts to Seller.
-.drop / .altdrop / altsdrop   -   All Alts will start dropping (not including Seller).
-.drop2 / .dropall   -   All alts including Seller will drop cash.
-.stop / .nodrop   -   Stops alts and Seller from dropping.
-
-.wallet   -   Equips wallet for Alts.
-.nowallet / .unwallet   -   Unequips wallet for Alts.
-
-.nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
-.destroy   -   Destroys cash on the floor.
-.destroyloop / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
-
-
-.airlock / .float   -   Airlock/float alts.
-.airlockall / .floatall   -   Airlock/float alts and Seller.
-
-.freeze   -   Freezes alts.
-.unfreeze / .nofreeze / .unairlock / .noairlock / .nofloat   -   Unfloats/unfreezes/unairlock alts and main.
-
-.block   -   Alts will do the block animation.
-.block2   -   Alts and Seller will do the block animation.
-.noblock / .unblock   -   Destroys cash on the floor.
-
-----=> PLACES <=---
-
-.lava / .base / .admin   -   Telerports Alts and Main to admin base.
-.club  -   Teleport Alts and Seller to club.
-
-----=> Setups <=----
-
-.qsetup   -   Brings and sets up alt.
-
-----=> Swagmode Crash <=---
-
-.crash   -   Destroys cash on the floor.
+               ____ _______ ______ _   _    _____ ____  _   _ _______ _____   ____  _      
+              / __ \__   __|  ____| \ | |  / ____/ __ \| \ | |__   __|  __ \ / __ \| |     
+             | |  | | | |  | |__  |  \| | | |   | |  | |  \| |  | |  | |__) | |  | | |     
+             | |  | | | |  |  __| | . ` | | |   | |  | | . ` |  | |  |  _  /| |  | | |     
+             | |__| | | |  | |____| |\  | | |___| |__| | |\  |  | |  | | \ \| |__| | |____ 
+              \____/  |_|  |______|_| \_|  \_____\____/|_| \_|  |_|  |_|  \_\\____/|______|
+                                                               By: Blitzy & Ashley    
+            
+            ----=> Alt/Seller Controls <=---
+            
+            .bring / .bringalts   -   Brings the alts to Seller.
+            .drop / .altdrop / altsdrop   -   All Alts will start dropping (not including Seller).
+            .drop2 / .dropall   -   All alts including Seller will drop cash.
+            .stop / .nodrop   -   Stops alts and Seller from dropping.
+            
+            .wallet   -   Equips wallet for Alts.
+            .nowallet / .unwallet   -   Unequips wallet for Alts.
+            
+            .nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
+            .destroy   -   Destroys cash on the floor.
+            .destroyloop / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
+            
+            
+            .airlock / .float   -   Airlock/float alts.
+            .airlockall / .floatall   -   Airlock/float alts and Seller.
+            
+            .freeze   -   Freezes alts.
+            .unfreeze / .nofreeze / .unairlock / .noairlock / .nofloat   -   Unfloats/unfreezes/unairlock alts and main.
+            
+            .block   -   Alts will do the block animation.
+            .block2   -   Alts and Seller will do the block animation.
+            .noblock / .unblock   -   Destroys cash on the floor.
+            
+            ----=> PLACES <=---
+            
+            .lava / .base / .admin   -   Telerports Alts and Main to admin base.
+            .club  -   Teleport Alts and Seller to club.
+            
+            ----=> Setups <=----
+            
+            .qsetup   -   Brings and sets up alt.
+            
+            ----=> Swagmode Crash <=---
+            
+            .crash   -   Destroys cash on the floor.
 ]]
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Oten Control"; 
+	Text = "Commands are posted on console, type /console or press F9 to see.";
+	Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
+	Duration = 18;
+})
