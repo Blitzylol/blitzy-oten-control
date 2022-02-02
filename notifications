@@ -45,10 +45,10 @@ end
 wait(2)
 
 if plr == owner then
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Seller Status:"; 
-	Text = "Seller ".. owner .." is online";
-	Icon = image;
-	Duration = 10;
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Seller Status: 👑"; 
+		Text = "Seller ".. owner .. "👑 is online";
+		Icon = image;
+		Duration = 10;
 	})
 end
