@@ -30,7 +30,7 @@ if me == owner then
 		Title = "Seller Status:"; 
 		Text = "You are the Seller.";
 		Icon = image;
-		Duration = 8;
+		Duration = 30;
 	})
 else
 	game.StarterGui:SetCore("SendNotification", {
