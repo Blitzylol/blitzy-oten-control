@@ -1,4 +1,12 @@
-print[[ Commands:
+print[[ --
+
+   ____ _______ ______ _   _    _____ ____  _   _ _______ _____   ____  _      
+  / __ \__   __|  ____| \ | |  / ____/ __ \| \ | |__   __|  __ \ / __ \| |     
+ | |  | | | |  | |__  |  \| | | |   | |  | |  \| |  | |  | |__) | |  | | |     
+ | |  | | | |  |  __| | . ` | | |   | |  | | . ` |  | |  |  _  /| |  | | |     
+ | |__| | | |  | |____| |\  | | |___| |__| | |\  |  | |  | | \ \| |__| | |____ 
+  \____/  |_|  |______|_| \_|  \_____\____/|_| \_|  |_|  |_|  \_\\____/|______|
+                                                   By: Blitzy & Ashley    
 
 ----=> Alt/Seller Controls <=---
 
@@ -6,6 +14,9 @@ print[[ Commands:
 .drop / .altdrop / altsdrop   -   All Alts will start dropping (not including Seller).
 .drop2 / .dropall   -   All alts including Seller will drop cash.
 .stop / .nodrop   -   Stops alts and Seller from dropping.
+
+.wallet   -   Equips wallet for Alts.
+.nowallet / .unwallet   -   Unequips wallet for Alts.
 
 .nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
 .destroy   -   Destroys cash on the floor.
@@ -26,6 +37,10 @@ print[[ Commands:
 
 .lava / .base / .admin   -   Telerports Alts and Main to admin base.
 .club  -   Teleport Alts and Seller to club.
+
+----=> Setups <=----
+
+.qsetup   -   Brings and sets up alt.
 
 ----=> Swagmode Crash <=---
 
