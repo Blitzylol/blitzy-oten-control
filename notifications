@@ -8,19 +8,19 @@ local image = game:GetService("Players"):GetUserThumbnailAsync(userId, thumbType
 
 
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Welcome".. me; 
+	Title = "Welcome ".. me; 
 	Text = "Thank you for using Alt Control. Type .cmds if you're lost.";
 	Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
-	Duration = 8;
+	Duration = 18;
 })
 
 wait(4)
 
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Welcome".. me; 
+	Title = "Welcome ".. me; 
 	Text = "this script was entirely made by Blitzy with the help of Ashley.";
 	Icon = game:GetService("Players"):GetUserThumbnailAsync(642971557, thumbType, thumbSize);
-	Duration = 8;
+	Duration = 18;
 })
 
 wait(2)
