@@ -1,0 +1,33 @@
+print[[ Commands:
+
+----=> Alt/Seller Controls <=---
+
+.bring / .bringalts   -   Brings the alts to Seller.
+.drop / .altdrop / altsdrop   -   All Alts will start dropping (not including Seller).
+.drop2 / .dropall   -   All alts including Seller will drop cash.
+.stop / .nodrop   -   Stops alts and Seller from dropping.
+
+.nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
+.destroy   -   Destroys cash on the floor.
+.destroyloop / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
+
+
+.airlock / .float   -   Airlock/float alts.
+.airlockall / .floatall   -   Airlock/float alts and Seller.
+
+.freeze   -   Freezes alts.
+.unfreeze / .nofreeze / .unairlock / .noairlock / .nofloat   -   Unfloats/unfreezes/unairlock alts and main.
+
+.block   -   Alts will do the block animation.
+.block2   -   Alts and Seller will do the block animation.
+.noblock / .unblock   -   Destroys cash on the floor.
+
+----=> PLACES <=---
+
+.lava / .base / .admin   -   Telerports Alts and Main to admin base.
+.club  -   Teleport Alts and Seller to club.
+
+----=> Swagmode Crash <=---
+
+.crash   -   Destroys cash on the floor.
+]]
