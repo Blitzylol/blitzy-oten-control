@@ -22,7 +22,7 @@ print[[ --
             
             .nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
             .destroy   -   Destroys cash on the floor.
-            .destroyloop / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
+            .destroy2 / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
             
             
             .airlock / .float   -   Airlock/float alts.
