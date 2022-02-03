@@ -51,10 +51,12 @@ print[[ --
             ----=> Setups <=----
             
             .qsetup   -   Brings and sets up alt.
+	    .qsetup2   -   Brings and spreads alt.
             
             ----=> Swagmode Crash <=---
             
-            .crash   -   Destroys cash on the floor.
+            .crash   -   Crashes the server.
+	     .lowcrash / .crash   -   Crash for lowend (?).
 ]]
 
 game.StarterGui:SetCore("SendNotification", {
