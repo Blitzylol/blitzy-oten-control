@@ -1,1 +1,398 @@
-not yet :p
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
+repeat wait() until game:GetService("Players").LocalPlayer.Character
+repeat wait() until game:GetService("Players").LocalPlayer.Backpack.Wallet
+repeat wait() until game:IsLoaded()
+
+
+-- REPEAT WAIT
+
+
+-- ANTI AFK
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	wait(1)
+	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+-- ANTI AFK
+
+-- NOTIFICATION / INTRO
+
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")()
+-- NOTIFICATION / INTRO
+
+
+
+
+
+
+-- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
+
+local owner = "K1ngBlitzy"
+local plr = game:GetService("Players")[owner]
+local me = game:GetService("Players").LocalPlayer.Name
+local Event = game:GetService("ReplicatedStorage").MainEvent
+local dropping = false
+local nostuck = math.random(-8, 8)
+
+-- NOTIFICATION
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size420x420
+
+local function noti(textn)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Oten Control"; 
+		Text = textn;
+		Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
+		Duration = 5;
+	})
+end
+-- NOTIFICATION
+
+
+--CASH COUNTER
+
+local function nolag()
+
+	local UserInputService = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
+
+	local WindowFocusReleasedFunction = function()
+		RunService:Set3dRenderingEnabled(false)
+		setfpscap(10)
+		return
+	end
+
+	local WindowFocusedFunction = function()
+		RunService:Set3dRenderingEnabled(true)
+		setfpscap(100)
+		return
+	end
+
+	local Initialize = function()
+		UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
+		UserInputService.WindowFocused:Connect(WindowFocusedFunction)
+		return
+	end
+	Initialize()
+
+	--FPS BOOST
+
+	for _,v in pairs(workspace:GetDescendants()) do
+		if v.ClassName == "Part"
+			or v.ClassName == "SpawnLocation"
+			or v.ClassName == "WedgePart"
+			or v.ClassName == "Terrain"
+			or v.ClassName == "MeshPart" then
+			v.Material = "Plastic"
+		end
+	end
+
+end
+
+
+local function CashDestroy()
+	for _, c in pairs(workspace.Ignored.Drop:GetDescendants()) do
+		if c.Name == "MoneyDrop"
+			or BrickColor == "Bright green" then
+			c:Destroy()
+		end
+	end
+end
+
+
+
+-- CRASHER
+
+local function crasher()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
+end
+
+-- CRASHER
+
+
+
+
+
+-- ALT AND MAIN CONTROLS
+
+
+
+local function drop()
+	local func = "DropMoney"
+	local amount = "10000"
+	Event:FireServer(func, amount)
+end
+
+
+local function droploop()
+	local droploop 
+	droploop = game:GetService("RunService").RenderStepped:Connect(function()
+		drop()
+		if dropping == false then
+			droploop:Disconnect()
+		end
+	end) --
+end
+
+
+
+local function reset()
+	for _, x in pairs(workspace.Players[me]:GetChildren()) do
+		if x:IsA("BasePart") and x.Name ~= "HumanoidRootPart" then
+			x:Destroy()
+		end
+	end
+end
+
+
+
+local function wallet()
+	game:GetService("Players")[me].Backpack.Wallet.Parent = game:GetService("Players")[me].Character
+end
+
+local function nowallet()
+	game:GetService("Players")[me].Character.Humanoid:UnequipTools()
+end
+
+
+
+local function block()
+	local a = "Block"
+	local b = true
+	Event:FireServer(a, b)
+end
+
+local function unblock()
+	local c = "Block"
+	local d = false
+	local Event =
+		Event:FireServer(c, d)
+end
+
+
+
+local function bring()
+	if me ~= owner then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
+	end
+end
+
+
+
+local function freeze()
+	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
+end
+
+local function unfreeze()
+	if game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored == true then
+		game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = false
+	end
+end
+
+
+
+local function airlock()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
+	wait(0.1)
+	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
+end
+
+
+
+
+-- PLACES
+
+
+
+local function club()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
+end
+
+local function lava()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
+end
+local function court()
+	local nostuckc = math.random(-55, -42)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
+end
+
+
+
+-- QUICK SETUPS
+
+
+
+local function qsetup()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(4, 6, 4)
+	wait(0.1)
+	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
+end
+
+
+-- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
+
+
+
+
+
+
+-- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS --
+plr.Chatted:Connect(function(msg)
+
+	if msg == ".commands" or msg == ".cmds" or msg == ".cmd" then
+		if owner == me then
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/commands'))()
+		end
+	end
+	if msg == ".check" then
+			noti(me.." is still active.")
+	end
+
+
+
+
+	if msg == ".drop" or msg == ".altsdrop" or msg == ".altdrop" then
+		if me ~= owner then
+			dropping = true
+			if dropping == true then
+				noti('Alts are now dropping!')
+				droploop()
+			end
+
+		end
+	end
+	if msg == ".drop2" or msg == ".dropall" then
+		dropping = true
+		if dropping == true then
+			droploop()
+		end
+	end
+	if msg == ".stop" or msg == ".nodrop" then
+		if dropping == true then
+			dropping = false
+			noti('Successfully stopped dropping.')
+		end
+	end
+	if msg == ".wallet" then
+		wallet()
+	end
+	if msg == ".unwallet" or msg == ".nowallet" then
+		nowallet()
+	end
+
+
+
+
+	if msg == ".nolag" or msg == ".lagfree" or msg == ".freelag" then
+		nolag()
+	end
+	if msg == ".bring" or msg == ".bringalts" then
+		bring()
+	end
+	if msg == ".re" or msg == ".reset" then
+		if me ~= owner then
+			reset()	
+		end
+	end
+
+
+
+	if msg == ".destroy" then
+		if me ~= owner then
+			CashDestroy()
+			noti('Destroyed cash on alts.')
+		end
+	end
+	--[[
+	if msg == ".loopdestroy" or msg == ".destroy2" then
+		if me == owner then
+			noti('Destroying cash every 20 seconds this function cannot be stopped.')
+		end
+
+		-- OWNER NOTIFICATION 
+
+		if me ~= owner then
+			while wait(20) do
+				CashDestroy()
+
+			end
+		end
+	end
+	]]
+
+
+
+
+	if msg == ".airlock" or msg == ".float" then
+		if me ~= owner then
+			airlock()
+		end
+	end
+	if msg == ".airlockall" or msg == ".floatall" then
+		airlock()	
+	end
+
+
+
+	if msg == ".freeze" then
+		if me ~= owner then
+			freeze()	
+		end
+	end
+	if msg == ".unfreeze" or msg == ".nofreeze" or msg == ".unairlock"  or msg == ".noairlock" or msg == ".nofloat" or msg == ".unfloat" then
+		unfreeze()
+	end
+
+
+
+	if msg == ".block" then
+		if me ~= owner then
+			block()
+		end
+	end
+	if msg == ".block2" then
+		block()
+	end
+	if msg == ".noblock" or msg == ".unblock" then
+		unblock()
+	end
+
+
+
+	if msg == ".lava" or msg == ".base" or msg == ".admin" or  msg == ".ashley"  then
+		lava()
+	end
+	if msg == ".club" or msg == ".toby" then
+		club()
+	end
+	if msg == ".court" then
+		court()
+	end
+
+
+
+
+	if msg == ".crash" then
+		crasher()
+		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
+	end
+
+	-- QUICK SETUPS
+
+
+	if msg == ".qsetup" then
+		if me ~= owner then
+			qsetup()
+		end
+	end
+
+
+end)
+
+
+if me == owner then
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()
+end
+
