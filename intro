@@ -87,10 +87,10 @@ local function YGGVWHN_fake_script() -- otencontrol.tween
 	local time = 1 --this will tell you how much it would take for the tween to finish
 	local gui = script.Parent.frame1
 	local gui2 = script.Parent.frame2
-	gui:TweenPosition(UDim2.new(0.313, 0,0.193, 0), "Out", "Quint", .9)
+	gui:TweenPosition(UDim2.new(0.2, 0,0, 0), "Out", "Quint", .9)
 	gui:TweenSize(UDim2.new(0, 500,0, 500), "Out", "Quint", .9)
 	wait(0.2)
-	gui2:TweenPosition(UDim2.new(0.313, 0,0.193, 0), "Out", "Quint", .9)
+	gui2:TweenPosition(UDim2.new(0.2, 0,0, 0), "Out", "Quint", .9)
 	gui2:TweenSize(UDim2.new(0, 500,0, 500), "Out", "Quint", .9)
 	
 	wait(1)
