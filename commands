@@ -27,6 +27,8 @@ print[[ --
             
             .airlock / .float   -   Airlock/float alts.
             .airlockall / .floatall   -   Airlock/float alts and Seller.
+	    
+	    .re / .reset   -   Force resets Alts.
             
             .freeze   -   Freezes alts.
             .unfreeze / .nofreeze / .unairlock / .noairlock / .nofloat   -   Unfloats/unfreezes/unairlock alts and main.
@@ -39,6 +41,7 @@ print[[ --
             
             .lava / .base / .admin   -   Telerports Alts and Main to admin base.
             .club  -   Teleport Alts and Seller to club.
+	    .court  -   Teleport Alts and Seller to court.
             
             ----=> Setups <=----
             
