@@ -103,6 +103,14 @@ local function CashDestroy()
 	end
 end
 
+local function mute()
+	for _, sound in pairs(game:GetService("Workspace"):GetDescendants()) do
+		if sound.ClassName == "Sound" then
+			sound:Destroy()
+		end
+	end
+end
+
 
 
 -- CRASHER
@@ -325,6 +333,10 @@ plr.Chatted:Connect(function(msg)
 
 	if msg == ".nolag" or msg == ".lagfree" or msg == ".freelag" then
 		nolag()
+	end
+	if msg == ".mute" then
+		mute()
+		noti('Muted all sound coming from alt and seller.')
 	end
 	if msg == ".bring" or msg == ".bringalts" then
 		bring()
