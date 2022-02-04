@@ -24,6 +24,7 @@ print[[ --
             
             .nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
             .destroy   -   Destroys cash on the floor.
+	    .destroy   -   Mutes all sounds coming from Alt and Seller.
 	    
 	    -- DISABLED FOR NOW
             .destroy2 / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
@@ -56,7 +57,7 @@ print[[ --
             ----=> Swagmode Crash <=---
             
             .crash   -   Crashes the server.
-	     .lowcrash / .crash   -   Crash for lowend (?).
+	    .lowcrash / .crash   -   Crash for lowend (?).
 ]]
 
 game.StarterGui:SetCore("SendNotification", {
