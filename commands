@@ -17,24 +17,24 @@ print[[ --
             .drop2 / .dropall   -   All alts including Seller will drop cash.
             .stop / .nodrop   -   Stops alts and Seller from dropping.
 	    
-	    .check  -   Sends a notification to Seller and Alts to check if theyre still active.
+	        .check  -   Sends a notification to Seller and Alts to check if theyre still active.
             
             .wallet   -   Equips wallet for Alts.
             .nowallet / .unwallet   -   Unequips wallet for Alts.
             
             .nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
             .destroy   -   Destroys cash on the floor.
-	    .destroy   -   Mutes all sounds coming from Alt and Seller.
+	        .destroy   -   Mutes all sounds coming from Alt and Seller.
 	    
-	    -- DISABLED FOR NOW
+	        -- DISABLED FOR NOW
             .destroy2 / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
-	    -- DISABLED FOR NOW
+	        -- DISABLED FOR NOW
             
             
             .airlock / .float   -   Airlock/float alts.
             .airlockall / .floatall   -   Airlock/float alts and Seller.
 	    
-	    .re / .reset   -   Force resets Alts.
+	        .re / .reset   -   Force resets Alts.
             
             .freeze   -   Freezes alts.
             .unfreeze / .nofreeze / .unairlock / .noairlock / .nofloat   -   Unfloats/unfreezes/unairlock alts and main.
@@ -47,17 +47,17 @@ print[[ --
             
             .lava / .base / .admin   -   Telerports Alts and Main to admin base.
             .club  -   Teleport Alts and Seller to club.
-	    .court  -   Teleport Alts and Seller to court.
+	        .court  -   Teleport Alts and Seller to court.
             
             ----=> Setups <=----
             
             .qsetup   -   Brings and sets up alt.
-	    .qsetup2   -   Brings and spreads alt.
+	        .qsetup2   -   Brings and spreads alt.
             
             ----=> Swagmode Crash <=---
             
             .crash   -   Crashes the server.
-	    .lowcrash / .crash   -   Crash for lowend (?).
+	        .lowcrash / .crash   -   Crash for lowend (?).
 ]]
 
 game.StarterGui:SetCore("SendNotification", {
