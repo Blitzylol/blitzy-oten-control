@@ -2,9 +2,11 @@ local owner = Seller
 local plr = game:GetService("Players")[owner]
 local me = game:GetService("Players").LocalPlayer.Name
 local userId = game:GetService("Players").LocalPlayer.userId
+local userIdo =game:GetService("Players")[owner].userId
 local thumbType = Enum.ThumbnailType.HeadShot
 local thumbSize = Enum.ThumbnailSize.Size420x420
 local image = game:GetService("Players"):GetUserThumbnailAsync(userId, thumbType, thumbSize)
+local imageo = game:GetService("Players"):GetUserThumbnailAsync(userIdo, thumbType, thumbSize)
 
 
 game.StarterGui:SetCore("SendNotification", {
@@ -47,8 +49,8 @@ wait(2)
 if plr ~= nil then
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Seller Status: "; 
-		Text = "Seller ".. owner .. "⯁ is online";
-		Icon = image;
+		Text = "Seller ".. owner .. " is online";
+		Icon = imageo;
 		Duration = 10;
 	})
 end
