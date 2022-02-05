@@ -1,4 +1,4 @@
-local owner = "K1ngBlitzy"
+local owner = Seller
 local plr = game:GetService("Players")[owner]
 local me = game:GetService("Players").LocalPlayer.Name
 local userId = game:GetService("Players").LocalPlayer.userId
