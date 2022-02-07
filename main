@@ -432,6 +432,9 @@ plr.Chatted:Connect(function(msg)
 	if msg == ".court" then
 		court()
 	end
+	if msg == ".ufo" or msg == ".alien" then
+		ufo()
+	end
 
 
 
