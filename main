@@ -18,7 +18,7 @@ end)
 
 -- NOTIFICATION / INTRO
 
-loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
+
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
 
 -- NOTIFICATION / INTRO
@@ -106,7 +106,13 @@ end
 local function mute()
 	for _, sound in pairs(game:GetService("Workspace"):GetDescendants()) do
 		if sound.ClassName == "Sound" then
-			sound:Destroy()
+			sound.Volume = 0
+		end
+	end
+
+	for _, sound2 in pairs(game:GetService("Players"):GetDescendants()) do
+		if sound2.ClassName == "Sound" then
+			sound2.Volume = 0
 		end
 	end
 end
@@ -251,6 +257,10 @@ local function court()
 	local nostuckc = math.random(-55, -42)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
 end
+local function ufo()
+	local nostucku = math.random(-40, -10)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
+end
 
 
 
@@ -355,6 +365,8 @@ plr.Chatted:Connect(function(msg)
 			noti('Destroyed cash on alts.')
 		end
 	end
+	
+	
 	--[[
 	if msg == ".loopdestroy" or msg == ".destroy2" then
 		if me == owner then
@@ -456,4 +468,13 @@ end)
 if me == owner then
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()
 end
+
+
+-- NOTIFICATION / INTRO
+
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
+-- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
+
+-- NOTIFICATION / INTRO
+
 
