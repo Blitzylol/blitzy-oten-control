@@ -367,22 +367,21 @@ plr.Chatted:Connect(function(msg)
 	end
 	
 	
-	--[[
+	
 	if msg == ".loopdestroy" or msg == ".destroy2" then
 		if me == owner then
-			noti('Destroying cash every 20 seconds this function cannot be stopped.')
+			noti('Destroying cash every 2 mins this function cannot be stopped.')
 		end
 
 		-- OWNER NOTIFICATION 
 
 		if me ~= owner then
-			while wait(20) do
+			CashDestroy()
+			while wait(120) do
 				CashDestroy()
-
 			end
 		end
 	end
-	]]
 
 
 
