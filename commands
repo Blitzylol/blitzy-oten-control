@@ -48,6 +48,7 @@ print[[ --
             .lava / .base / .admin   -   Telerports Alts and Main to admin base.
             .club  -   Teleport Alts and Seller to club.
 	        .court  -   Teleport Alts and Seller to court.
+		.ufo / .alien   -   Teleport Alts and Seller to ufo.
             
             ----=> Setups <=----
             
