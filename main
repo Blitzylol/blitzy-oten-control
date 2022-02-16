@@ -484,6 +484,7 @@ end
 
 loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
+https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier -- JOIN / LEAVE NOTIFY
 
 -- NOTIFICATION / INTRO
 
