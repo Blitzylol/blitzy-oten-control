@@ -9,12 +9,21 @@ local image = game:GetService("Players"):GetUserThumbnailAsync(userId, thumbType
 local imageo = game:GetService("Players"):GetUserThumbnailAsync(userIdo, thumbType, thumbSize)
 
 local s = Instance.new("Sound")
-s.Name = "apple play"
+s.Name = "apple pay"
 s.SoundId = "http://www.roblox.com/asset/?id=2027986581"
 s.Volume = 3
 s.Looped = false
 s.archivable = false
 s.Parent = game.Workspace
+
+
+local z = Instance.new("Sound")
+z.Name = "buzzer"
+z.SoundId = "http://www.roblox.com/asset/?id=6281086808"
+z.Volume = 3
+z.Looped = false
+z.archivable = false
+z.Parent = game.Workspace
 
 
 game.StarterGui:SetCore("SendNotification", {
@@ -71,4 +80,5 @@ if plr == nil then
 		Icon = imageo;
 		Duration = 50;
 	})
+	z:Play()
 end
