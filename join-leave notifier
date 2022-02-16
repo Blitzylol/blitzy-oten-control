@@ -62,5 +62,5 @@ game.Players.ChildRemoved:Connect(function(player)
 	end
 end)
 
-SendNotification("Loaded","Join and leave detector is loaded",127511899, 2)
+SendNotification("Oten Control","Join and leave detector is loaded",127511899, 2)
 q:Play()
