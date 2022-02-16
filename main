@@ -485,7 +485,9 @@ end
 loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
 wait(2)
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
-loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")() -- JOIN / LEAVE NOTIFY
+if me == owner then
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")() -- JOIN / LEAVE NOTIFY
+end   
 
 -- NOTIFICATION / INTRO
 
