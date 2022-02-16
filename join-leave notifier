@@ -1,0 +1,66 @@
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size420x420
+
+
+local s = Instance.new("Sound")
+s.Name = "Sound"
+s.SoundId = "http://www.roblox.com/asset/?id=2528420941"
+s.Volume = 1
+s.Looped = false
+s.archivable = false
+s.Parent = game.Workspace
+--Join
+
+local k = Instance.new("Sound")
+k.Name = "Soundzz"
+k.SoundId = "http://www.roblox.com/asset/?id=8284260932"
+k.Volume = 1
+k.Looped = false
+k.archivable = false
+k.Parent = game.Workspace
+--Left
+
+local q = Instance.new("Sound")
+q.Name = "Soundzzzz"
+q.SoundId = "http://www.roblox.com/asset/?id=249869145"
+q.Volume = 1
+q.Looped = false
+q.archivable = false
+q.Parent = game.Workspace
+--Systems Online
+
+local function SendNotification(title,text,id,duration,...)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = title;
+		Text = text;
+		Icon = game:GetService("Players"):GetUserThumbnailAsync(id, thumbType, thumbSize);
+		Duration = duration;
+	})
+end
+
+-- JOIN
+
+game.Players.ChildAdded:Connect(function(player)
+	if not pcall (function()
+			SendNotification("Oten Control",""..player.Name.." joined your session",player.userId, 10)
+			s:Play()
+			print(""..player.Name.." Joined your session")
+		end) then
+		print ("Error")
+	end
+end)
+
+-- LEAVE
+
+game.Players.ChildRemoved:Connect(function(player)
+	if not pcall (function()
+			SendNotification("Oten Control",""..player.Name.." left your session",player.userId, 10)
+			k:Play()
+			print(""..player.Name.." Left your session")
+		end) then
+		print ("Error")
+	end
+end)
+
+SendNotification("Loaded","Join and leave detector is loaded",127511899, 2)
+q:Play()
