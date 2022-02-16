@@ -8,6 +8,14 @@ local thumbSize = Enum.ThumbnailSize.Size420x420
 local image = game:GetService("Players"):GetUserThumbnailAsync(userId, thumbType, thumbSize)
 local imageo = game:GetService("Players"):GetUserThumbnailAsync(userIdo, thumbType, thumbSize)
 
+local s = Instance.new("Sound")
+s.Name = "apple play"
+s.SoundId = "http://www.roblox.com/asset/?id=2027986581"
+s.Volume = 3
+s.Looped = false
+s.archivable = false
+s.Parent = game.Workspace
+
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
@@ -16,23 +24,23 @@ game.StarterGui:SetCore("SendNotification", {
 	Duration = 18;
 })
 
-wait(4)
+wait(8)
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
 	Text = "this script was entirely made by Blitzy with the help of Ashley.";
 	Icon = game:GetService("Players"):GetUserThumbnailAsync(642971557, thumbType, thumbSize);
-	Duration = 18;
+	Duration = 10;
 })
 
-wait(2)
+wait(4)
 
 if me == owner then
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Seller Status:"; 
 		Text = "You are the Seller.";
 		Icon = image;
-		Duration = 30;
+		Duration = 8;
 	})
 else
 	game.StarterGui:SetCore("SendNotification", {
@@ -52,5 +60,15 @@ if plr ~= nil then
 		Text = "Seller ".. owner .. " is online";
 		Icon = imageo;
 		Duration = 10;
+	})
+	s:Play()
+end
+
+if plr == nil then
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Seller Status: "; 
+		Text = "Seller ".. owner .. " is offline";
+		Icon = imageo;
+		Duration = 50;
 	})
 end
