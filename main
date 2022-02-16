@@ -125,8 +125,8 @@ local function crasher()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
 end
 local function lowcrasher()
-	
-	
+
+
 	for _,v in pairs(workspace:GetDescendants()) do
 		if v.ClassName == "Part"
 			or v.ClassName == "SpawnLocation"
@@ -144,8 +144,8 @@ local function lowcrasher()
 			v:Destroy()
 		end
 	end --GRAPHIC SETTINGS
-	
-	
+
+
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
 end
 
@@ -303,7 +303,7 @@ plr.Chatted:Connect(function(msg)
 		end
 	end
 	if msg == ".check" then
-			noti(me.." is still active.")
+		noti(me.." is still active.")
 	end
 
 
@@ -365,9 +365,9 @@ plr.Chatted:Connect(function(msg)
 			noti('Destroyed cash on alts.')
 		end
 	end
-	
-	
-	
+
+
+
 	if msg == ".loopdestroy" or msg == ".destroy2" then
 		if me == owner then
 			noti('Destroying cash every 2 mins this function cannot be stopped.')
@@ -450,7 +450,7 @@ plr.Chatted:Connect(function(msg)
 		crasher()
 		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
 	end
-	
+
 	if msg == ".lowcrash" or msg == ".crash2" then
 		lowcrasher()
 		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
@@ -464,7 +464,7 @@ plr.Chatted:Connect(function(msg)
 			qsetup()
 		end
 	end
-	
+
 	if msg == ".qsetup2" then
 		if me ~= owner then
 			qsetup2()
@@ -483,9 +483,9 @@ end
 -- NOTIFICATION / INTRO
 
 loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
+wait(2)
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
-https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier -- JOIN / LEAVE NOTIFY
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")() -- JOIN / LEAVE NOTIFY
 
 -- NOTIFICATION / INTRO
-
 
