@@ -423,16 +423,24 @@ plr.Chatted:Connect(function(msg)
 
 
 	if msg == ".lava" or msg == ".base" or msg == ".admin" or  msg == ".ashley"  then
-		lava()
+		if me == owner then
+			lava()
+		end
 	end
 	if msg == ".club" or msg == ".toby" then
-		club()
+		if me == owner then
+			club()
+		end
 	end
 	if msg == ".court" then
-		court()
+		if me == owner then
+			court()
+		end
 	end
 	if msg == ".ufo" or msg == ".alien" then
-		ufo()
+		if me == owner then
+			ufo()
+		end
 	end
 
 
