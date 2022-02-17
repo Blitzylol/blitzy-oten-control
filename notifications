@@ -30,10 +30,10 @@ game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
 	Text = "Thank you for using Alt Control. Type .cmds if you're lost.";
 	Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
-	Duration = 18;
+	Duration = 14;
 })
 
-wait(8)
+wait(4)
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
