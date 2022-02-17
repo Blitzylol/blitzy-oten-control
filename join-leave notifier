@@ -3,7 +3,7 @@ local thumbSize = Enum.ThumbnailSize.Size420x420
 
 
 local s = Instance.new("Sound")
-s.Name = "Sound"
+s.Name = "oten"
 s.SoundId = "http://www.roblox.com/asset/?id=2528420941"
 s.Volume = 1
 s.Looped = false
@@ -12,7 +12,7 @@ s.Parent = game.Workspace
 --Join
 
 local k = Instance.new("Sound")
-k.Name = "Soundzz"
+k.Name = "oten"
 k.SoundId = "http://www.roblox.com/asset/?id=8284260932"
 k.Volume = 1
 k.Looped = false
@@ -21,7 +21,7 @@ k.Parent = game.Workspace
 --Left
 
 local q = Instance.new("Sound")
-q.Name = "Soundzzzz"
+q.Name = "oten"
 q.SoundId = "http://www.roblox.com/asset/?id=249869145"
 q.Volume = 1
 q.Looped = false
