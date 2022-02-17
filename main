@@ -475,9 +475,6 @@ plr.Chatted:Connect(function(msg)
 end)
 
 
-if me == owner then
-	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()
-end
 
 
 -- NOTIFICATION / INTRO
@@ -486,8 +483,8 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-
 wait(2)
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
 if me == owner then
-	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")() -- JOIN / LEAVE NOTIFY
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")()
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
 end   
-
 -- NOTIFICATION / INTRO
 
