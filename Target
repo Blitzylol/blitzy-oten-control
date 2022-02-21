@@ -1,0 +1,309 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local targetgui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local currency = Instance.new("TextLabel")
+local unview = Instance.new("TextButton")
+local view = Instance.new("TextButton")
+local bring = Instance.new("TextButton")
+local Goto = Instance.new("TextButton")
+local player = Instance.new("TextBox")
+local otencontrol = Instance.new("TextLabel")
+
+--Properties:
+
+targetgui.Name = "targetgui"
+targetgui.Parent = game.CoreGui
+targetgui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = targetgui
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.00670140982, 0, 0.446625769, 0)
+Frame.Size = UDim2.new(0, 200, 0, 346)
+
+currency.Name = "currency"
+currency.Parent = Frame
+currency.BackgroundColor3 = Color3.fromRGB(95, 255, 87)
+currency.BackgroundTransparency = 1.000
+currency.Position = UDim2.new(0.0599999987, 0, 0, 0)
+currency.Size = UDim2.new(0, 176, 0, 29)
+currency.Font = Enum.Font.GothamSemibold
+currency.Text = "$ NIL"
+currency.TextColor3 = Color3.fromRGB(120, 236, 111)
+currency.TextSize = 14.000
+
+unview.Name = "unview"
+unview.Parent = Frame
+unview.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+unview.BorderSizePixel = 0
+unview.Position = UDim2.new(0.0599999987, 0, 0.439213932, 0)
+unview.Size = UDim2.new(0, 176, 0, 18)
+unview.Font = Enum.Font.Ubuntu
+unview.Text = "Unview"
+unview.TextColor3 = Color3.fromRGB(255, 255, 255)
+unview.TextSize = 14.000
+
+view.Name = "view"
+view.Parent = Frame
+view.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+view.BorderSizePixel = 0
+view.Position = UDim2.new(0.0599999987, 0, 0.361179233, 0)
+view.Size = UDim2.new(0, 176, 0, 18)
+view.Font = Enum.Font.Ubuntu
+view.Text = "View"
+view.TextColor3 = Color3.fromRGB(255, 255, 255)
+view.TextSize = 14.000
+
+bring.Name = "bring"
+bring.Parent = Frame
+bring.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+bring.BorderSizePixel = 0
+bring.Position = UDim2.new(0.0599999987, 0, 0.286034703, 0)
+bring.Size = UDim2.new(0, 176, 0, 18)
+bring.Font = Enum.Font.Ubuntu
+bring.Text = "Bring"
+bring.TextColor3 = Color3.fromRGB(255, 255, 255)
+bring.TextSize = 14.000
+
+Goto.Name = "Goto"
+Goto.Parent = Frame
+Goto.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+Goto.BorderSizePixel = 0
+Goto.Position = UDim2.new(0.0599999987, 0, 0.208000004, 0)
+Goto.Size = UDim2.new(0, 176, 0, 18)
+Goto.Font = Enum.Font.Ubuntu
+Goto.Text = "Goto"
+Goto.TextColor3 = Color3.fromRGB(255, 255, 255)
+Goto.TextSize = 14.000
+
+player.Name = "player"
+player.Parent = Frame
+player.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+player.BorderSizePixel = 0
+player.Position = UDim2.new(0.0599999987, 0, 0.0838150308, 0)
+player.Size = UDim2.new(0, 176, 0, 34)
+player.Font = Enum.Font.SourceSans
+player.PlaceholderText = "[ PLAYER NAME ]"
+player.Text = ""
+player.TextColor3 = Color3.fromRGB(255, 255, 255)
+player.TextSize = 14.000
+
+otencontrol.Name = "otencontrol"
+otencontrol.Parent = Frame
+otencontrol.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+otencontrol.BackgroundTransparency = 1.000
+otencontrol.Position = UDim2.new(0, 0, 0.933526039, 0)
+otencontrol.Size = UDim2.new(0, 200, 0, 23)
+otencontrol.Font = Enum.Font.SourceSansBold
+otencontrol.Text = "OTEN CONTROL"
+otencontrol.TextColor3 = Color3.fromRGB(255, 255, 255)
+otencontrol.TextSize = 17.000
+
+-- Scripts:
+
+local function UFPL_fake_script() -- unview.unview 
+	local script = Instance.new('Script', unview)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local player = player.Text
+		game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+	end)
+	
+end
+coroutine.wrap(UFPL_fake_script)()
+local function GDIOG_fake_script() -- view.view 
+	local script = Instance.new('Script', view)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local player = player.Text
+		game.Workspace.Camera.CameraSubject = game.Players[player].Character.Humanoid
+	end)
+		
+end
+coroutine.wrap(GDIOG_fake_script)()
+local function GPYDVSE_fake_script() -- bring.bring script 
+	local script = Instance.new('Script', bring)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+	local player = player.Text
+	
+	
+	
+	local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+	local me = game:GetService("Players").LocalPlayer.Name
+	local backpack = game:GetService("Players")[me].Backpack
+	
+	
+	
+	
+	
+	local function grab()
+		local g = "Grabbing"
+		local f = false
+		local Event = game:GetService("ReplicatedStorage").MainEvent
+		Event:FireServer(g, f)
+		wait(1)
+	
+	end
+	
+	local function kill()
+		game.Players[me].Character.LeftHand.CFrame = game.Players[player].Character.LowerTorso.CFrame;
+		game.Players[me].Character.RightHand.CFrame = game.Players[player].Character.LowerTorso.CFrame;
+	end
+	
+	
+	local function sledge()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[SledgeHammer] - $350"].Head.CFrame
+		wait(0.5)
+		fireclickdetector(game:GetService("Workspace").Ignored.Shop["[SledgeHammer] - $350"].ClickDetector)
+	end
+	
+	local function reset()
+		for _, x in pairs(workspace.Players[me]:GetChildren()) do
+			if x:IsA("BasePart") and x.Name ~= "HumanoidRootPart" then
+				x:Destroy()
+			end
+		end
+	end
+	
+	
+	repeat sledge() until backpack:WaitForChild('[SledgeHammer]')
+	
+	
+	
+	game.Players.LocalPlayer.Backpack["[SledgeHammer]"].Handle.Size = Vector3.new(40, 40, 40) 
+	backpack['[SledgeHammer]'].Parent = game:GetService("Players")[me].Character 
+	
+	pcall(function()
+		game.Players.LocalPlayer.Character.LeftHand.Size = Vector3.new(1,1,1)
+		game.Players[me].Character.LeftHand.LeftWrist:Destroy();
+		game.Players[me].Character.RightHand.RightWrist:Destroy();
+		game.Players.LocalPlayer.Character.RightHand.Size = Vector3.new(1,1,1)
+	
+	end)
+	
+	if player and game.Players[player].Character.BodyEffects['K.O'].Value == false then
+		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[player].Character.HumanoidRootPart.CFrame
+		--kill
+		repeat
+			wait();
+			kill()
+		until game.Players[player].Character.BodyEffects['K.O'].Value == true
+	
+		wait()
+	
+		repeat
+			local pp = game.Players[player].Character.LowerTorso.Position
+			game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(pp)
+			wait()
+			grab();
+		until game.Players[player].Character:FindFirstChild("GRABBING_CONSTRAINT")
+	
+	
+		game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos) + Vector3.new(0,3,0)
+		task.wait(0.3)
+		game.Players[me].Character.HumanoidRootPart.Anchored = true
+		grab()
+		reset()
+		wait(10)
+		game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos)
+		print"yes"
+	
+		--grab
+	
+		end
+	end)
+	
+	
+	
+	
+end
+coroutine.wrap(GPYDVSE_fake_script)()
+local function SVTTKPN_fake_script() -- Goto.goto script 
+	local script = Instance.new('Script', Goto)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local player = player.Text
+		local me = game:GetService("Players").LocalPlayer.Name
+		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[player].Character.LowerTorso.CFrame
+	end)
+end
+coroutine.wrap(SVTTKPN_fake_script)()
+local function JYZGZXR_fake_script() -- Frame.drag 
+	local script = Instance.new('Script', Frame)
+
+	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
+end
+coroutine.wrap(JYZGZXR_fake_script)()
+local function RFGJ_fake_script() -- Frame.currency update 
+	local script = Instance.new('Script', Frame)
+
+	
+	function comma_value(n) -- credit http://richard.warburton.it
+		local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
+		return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
+	end
+	
+	
+	local loop 
+	loop = game:GetService("RunService").RenderStepped:Connect(function()
+		pcall(function()
+		    local player = player.Text
+			local money = game:GetService("Players")[player].DataFolder.Currency.Value
+			currency.Text = (comma_value('$'..money))
+			end)
+	end)
+	
+end
+coroutine.wrap(RFGJ_fake_script)()
+local function IKGGXYB_fake_script() -- targetgui.name shrink 
+	local script = Instance.new('Script', targetgui)
+
+	local function ShrinkName()
+		player.FocusLost:connect(function()
+			for i,v in pairs(game.Players:GetChildren()) do
+				if (string.sub(string.lower(v.Name),1,string.len(player.Text))) == string.lower(player.Text) then
+					player.Text = v.Name
+				end
+			end
+		end)
+	end
+	
+	ShrinkName()
+	function findPlayer(name)
+		name = name:lower()
+		if name == 'me' then
+			return game:GetService'Players'.LocalPlayer
+		end
+		for i,v in pairs(game:GetService'Players':GetPlayers()) do
+			if v.Name:lower():find(name) == 1 then
+				return v
+			end
+		end
+	end
+	
+end
+coroutine.wrap(IKGGXYB_fake_script)()
+local function TVYT_fake_script() -- targetgui.Script 
+	local script = Instance.new('Script', targetgui)
+
+	local ui = script.Parent.Frame
+	game:GetService("UserInputService").InputBegan:Connect(function(key, gp)
+		if key.KeyCode == Enum.KeyCode.RightShift then
+			if ui.Visible == true then
+				ui.Visible = false
+			elseif ui.Visible == false then
+				ui.Visible = true
+			end
+		end
+	end)
+end
+coroutine.wrap(TVYT_fake_script)()
