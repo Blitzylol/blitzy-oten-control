@@ -315,7 +315,7 @@ local function XALPX_fake_script() -- targetgui.Script
 
 	local ui = script.Parent.Frame
 	game:GetService("UserInputService").InputBegan:Connect(function(key, gp)
-		if key.KeyCode == Enum.KeyCode.L then
+		if key.KeyCode == Enum.KeyCode.RightShift then
 			if ui.Visible == true then
 				ui.Visible = false
 			elseif ui.Visible == false then
