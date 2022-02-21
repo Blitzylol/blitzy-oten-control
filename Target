@@ -105,7 +105,7 @@ otencontrol.TextSize = 17.000
 
 -- Scripts:
 
-local function UFPL_fake_script() -- unview.unview 
+local function TWOANBN_fake_script() -- unview.unview 
 	local script = Instance.new('Script', unview)
 
 	local button = script.Parent
@@ -115,8 +115,8 @@ local function UFPL_fake_script() -- unview.unview
 	end)
 	
 end
-coroutine.wrap(UFPL_fake_script)()
-local function GDIOG_fake_script() -- view.view 
+coroutine.wrap(TWOANBN_fake_script)()
+local function VUTWCHP_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -126,8 +126,8 @@ local function GDIOG_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(GDIOG_fake_script)()
-local function GPYDVSE_fake_script() -- bring.bring script 
+coroutine.wrap(VUTWCHP_fake_script)()
+local function KQVKSDQ_fake_script() -- bring.bring script 
 	local script = Instance.new('Script', bring)
 
 	local button = script.Parent
@@ -179,7 +179,7 @@ local function GPYDVSE_fake_script() -- bring.bring script
 	
 	
 	game.Players.LocalPlayer.Backpack["[SledgeHammer]"].Handle.Size = Vector3.new(40, 40, 40) 
-	backpack['[SledgeHammer]'].Parent = game:GetService("Players")[me].Character 
+		backpack['[SledgeHammer]'].Parent = game:GetService("Players")[me].Character 
 	
 	pcall(function()
 		game.Players.LocalPlayer.Character.LeftHand.Size = Vector3.new(1,1,1)
@@ -194,11 +194,12 @@ local function GPYDVSE_fake_script() -- bring.bring script
 		--kill
 		repeat
 			wait();
-			kill()
+			kill();
+			game:GetService("Players")[me].Character['[SledgeHammer]']:Activate()
 		until game.Players[player].Character.BodyEffects['K.O'].Value == true
 	
 		wait()
-	
+	    --grab
 		repeat
 			local pp = game.Players[player].Character.LowerTorso.Position
 			game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(pp)
@@ -208,16 +209,33 @@ local function GPYDVSE_fake_script() -- bring.bring script
 	
 	
 		game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos) + Vector3.new(0,3,0)
-		task.wait(0.3)
+		task.wait(0.6)
 		game.Players[me].Character.HumanoidRootPart.Anchored = true
 		grab()
 		reset()
-		wait(10)
+		task.wait(8)
 		game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos)
-		print"yes"
 	
 		--grab
 	
+		else if game.Players[player].Character.BodyEffects['K.O'].Value == true then
+		--just grab
+				repeat
+					local pp = game.Players[player].Character.LowerTorso.Position
+					game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(pp)
+					wait()
+					grab();
+				until game.Players[player].Character:FindFirstChild("GRABBING_CONSTRAINT")
+	
+	
+				game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos) + Vector3.new(0,3,0)
+				task.wait(0.6)
+				game.Players[me].Character.HumanoidRootPart.Anchored = true
+				grab()
+				reset()
+				task.wait(8)
+				game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos)
+			end
 		end
 	end)
 	
@@ -225,8 +243,8 @@ local function GPYDVSE_fake_script() -- bring.bring script
 	
 	
 end
-coroutine.wrap(GPYDVSE_fake_script)()
-local function SVTTKPN_fake_script() -- Goto.goto script 
+coroutine.wrap(KQVKSDQ_fake_script)()
+local function YGXKR_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
@@ -236,14 +254,14 @@ local function SVTTKPN_fake_script() -- Goto.goto script
 		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[player].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(SVTTKPN_fake_script)()
-local function JYZGZXR_fake_script() -- Frame.drag 
+coroutine.wrap(YGXKR_fake_script)()
+local function UURYX_fake_script() -- Frame.drag 
 	local script = Instance.new('Script', Frame)
 
 	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
 end
-coroutine.wrap(JYZGZXR_fake_script)()
-local function RFGJ_fake_script() -- Frame.currency update 
+coroutine.wrap(UURYX_fake_script)()
+local function VVHFHZ_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -263,8 +281,8 @@ local function RFGJ_fake_script() -- Frame.currency update
 	end)
 	
 end
-coroutine.wrap(RFGJ_fake_script)()
-local function IKGGXYB_fake_script() -- targetgui.name shrink 
+coroutine.wrap(VVHFHZ_fake_script)()
+local function JBZR_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -291,13 +309,13 @@ local function IKGGXYB_fake_script() -- targetgui.name shrink
 	end
 	
 end
-coroutine.wrap(IKGGXYB_fake_script)()
-local function TVYT_fake_script() -- targetgui.Script 
+coroutine.wrap(JBZR_fake_script)()
+local function XALPX_fake_script() -- targetgui.Script 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
 	game:GetService("UserInputService").InputBegan:Connect(function(key, gp)
-		if key.KeyCode == Enum.KeyCode.RightShift then
+		if key.KeyCode == Enum.KeyCode.L then
 			if ui.Visible == true then
 				ui.Visible = false
 			elseif ui.Visible == false then
@@ -306,4 +324,4 @@ local function TVYT_fake_script() -- targetgui.Script
 		end
 	end)
 end
-coroutine.wrap(TVYT_fake_script)()
+coroutine.wrap(XALPX_fake_script)()
