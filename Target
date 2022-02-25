@@ -1,4 +1,4 @@
---2/22/22 12:27
+-- 2/25/2022
 
 local targetgui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -9,6 +9,7 @@ local bring = Instance.new("TextButton")
 local Goto = Instance.new("TextButton")
 local player = Instance.new("TextBox")
 local otencontrol = Instance.new("TextLabel")
+local Reset = Instance.new("TextButton")
 
 --Properties:
 
@@ -100,9 +101,20 @@ otencontrol.Text = "OTEN CONTROL"
 otencontrol.TextColor3 = Color3.fromRGB(255, 255, 255)
 otencontrol.TextSize = 17.000
 
+Reset.Name = "Reset"
+Reset.Parent = Frame
+Reset.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+Reset.BorderSizePixel = 0
+Reset.Position = UDim2.new(0.0599999987, 0, 0.514358461, 0)
+Reset.Size = UDim2.new(0, 176, 0, 18)
+Reset.Font = Enum.Font.Ubuntu
+Reset.Text = "Reset"
+Reset.TextColor3 = Color3.fromRGB(255, 255, 255)
+Reset.TextSize = 14.000
+
 -- Scripts:
 
-local function GLDYESB_fake_script() -- unview.unview 
+local function UROYS_fake_script() -- unview.unview 
 	local script = Instance.new('Script', unview)
 
 	local button = script.Parent
@@ -112,8 +124,8 @@ local function GLDYESB_fake_script() -- unview.unview
 	end)
 	
 end
-coroutine.wrap(GLDYESB_fake_script)()
-local function SDYSGZT_fake_script() -- view.view 
+coroutine.wrap(UROYS_fake_script)()
+local function OPUFORY_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -123,54 +135,54 @@ local function SDYSGZT_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(SDYSGZT_fake_script)()
-local function GDMV_fake_script() -- bring.bring script 
+coroutine.wrap(OPUFORY_fake_script)()
+local function DKFMNJI_fake_script() -- bring.bring script 
 	local script = Instance.new('Script', bring)
 
 	local button = script.Parent
 	button.MouseButton1Click:Connect(function()
-	local player = player.Text
+		local player = player.Text
 	
 	
 	
-	local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-	local me = game:GetService("Players").LocalPlayer.Name
-	local backpack = game:GetService("Players")[me].Backpack
+		local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+		local me = game:GetService("Players").LocalPlayer.Name
+		local backpack = game:GetService("Players")[me].Backpack
 	
 	
 	
 	
 	
-	local function grab()
-		local g = "Grabbing"
-		local f = false
-		local Event = game:GetService("ReplicatedStorage").MainEvent
-		Event:FireServer(g, f)
-		wait(1)
+		local function grab()
+			local g = "Grabbing"
+			local f = false
+			local Event = game:GetService("ReplicatedStorage").MainEvent
+			Event:FireServer(g, f)
+			wait(1)
 	
-	end
+		end
 	
-	local function kill()
-		game.Players[me].Character.LeftHand.CFrame = game.Players[player].Character.LowerTorso.CFrame;
-		game.Players[me].Character.RightHand.CFrame = game.Players[player].Character.LowerTorso.CFrame;
-	end
+		local function kill()
+			game.Players[me].Character.LeftHand.CFrame = game.Players[player].Character.LowerTorso.CFrame;
+			game.Players[me].Character.RightHand.CFrame = game.Players[player].Character.LowerTorso.CFrame;
+		end
 	
 	
-	local function sledge()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[SledgeHammer] - $350"].Head.CFrame
-		wait(0.5)
-		fireclickdetector(game:GetService("Workspace").Ignored.Shop["[SledgeHammer] - $350"].ClickDetector)
-	end
+		local function sledge()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[SledgeHammer] - $350"].Head.CFrame
+			wait(0.5)
+			fireclickdetector(game:GetService("Workspace").Ignored.Shop["[SledgeHammer] - $350"].ClickDetector)
+		end
 	
-	local function reset()
-		for _, x in pairs(workspace.Players[me]:GetChildren()) do
-			if x:IsA("BasePart") and x.Name ~= "HumanoidRootPart" then
-				x:Destroy()
+		local function reset()
+			for _, x in pairs(workspace.Players[me]:GetChildren()) do
+				if x:IsA("BasePart") and x.Name ~= "HumanoidRootPart" then
+					x:Destroy()
+				end
 			end
 		end
-	end
-		
-	local function back()
+	
+		local function back()
 			game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos) + Vector3.new(0,3,0)
 			task.wait(0.6)
 			game.Players[me].Character.HumanoidRootPart.Anchored = true
@@ -178,61 +190,57 @@ local function GDMV_fake_script() -- bring.bring script
 			reset()
 			task.wait(7)
 			game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(lastpos)
-			
-	end
 	
-	repeat sledge() until backpack:WaitForChild('[SledgeHammer]')
+		end
+	
+		repeat sledge() until backpack:WaitForChild('[SledgeHammer]')
 	
 	
 	
-	game.Players.LocalPlayer.Backpack["[SledgeHammer]"].Handle.Size = Vector3.new(40, 40, 40) 
+		game.Players.LocalPlayer.Backpack["[SledgeHammer]"].Handle.Size = Vector3.new(40, 40, 40) 
 		backpack['[SledgeHammer]'].Parent = game:GetService("Players")[me].Character 
 	
-	pcall(function()
-		game.Players[me].Character.LeftHand.LeftWrist:Destroy();
-		game.Players[me].Character.RightHand.RightWrist:Destroy();
-	end)
+		pcall(function()
+			game.Players[me].Character.LeftHand.LeftWrist:Destroy();
+			game.Players[me].Character.RightHand.RightWrist:Destroy();
+		end)
 	
-	if player and game.Players[player].Character.BodyEffects['K.O'].Value == false then
-		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[player].Character.HumanoidRootPart.CFrame
-		--kill
-		repeat
-			wait();
-			kill();
-			game:GetService("Players")[me].Character['[SledgeHammer]']:Activate()
-		until game.Players[player].Character.BodyEffects['K.O'].Value == true
+		if player and game.Players[player].Character.BodyEffects['K.O'].Value == false then
+			game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[player].Character.HumanoidRootPart.CFrame
+			--kill
+			repeat
+				wait();
+				kill();
+				game:GetService("Players")[me].Character['[SledgeHammer]']:Activate()
+			until game.Players[player].Character.BodyEffects['K.O'].Value == true
 	
-		wait()
-	    --grab
-		repeat
-			local pp = game.Players[player].Character.LowerTorso.Position
-			game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(pp) + Vector3.new(0,1.2,0)
 			wait()
-			grab();
-		until game.Players[player].Character:FindFirstChild("GRABBING_CONSTRAINT")
-	     back()
+			--grab
+			repeat
+				local pp = game.Players[player].Character.LowerTorso.Position
+				game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(pp) + Vector3.new(0,1.2,0)
+				wait()
+				grab();
+			until game.Players[player].Character:FindFirstChild("GRABBING_CONSTRAINT")
+			back()
 	
-		--grab
+			--grab
 	
 		else if game.Players[player].Character.BodyEffects['K.O'].Value == true then
-		--just grab
+				--just grab
 				repeat
 					local pp = game.Players[player].Character.LowerTorso.Position
 					game.Players[me].Character.HumanoidRootPart.CFrame = CFrame.new(pp) + Vector3.new(0,1.2,0)
 					wait()
 					grab();
 				until game.Players[player].Character:FindFirstChild("GRABBING_CONSTRAINT")
-	            back()
+				back()
 			end
 		end
 	end)
-	
-	
-	
-	
 end
-coroutine.wrap(GDMV_fake_script)()
-local function QEFME_fake_script() -- Goto.goto script 
+coroutine.wrap(DKFMNJI_fake_script)()
+local function AGUPH_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
@@ -242,14 +250,14 @@ local function QEFME_fake_script() -- Goto.goto script
 		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[player].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(QEFME_fake_script)()
-local function SKOLRJ_fake_script() -- Frame.drag 
+coroutine.wrap(AGUPH_fake_script)()
+local function MUUCBEF_fake_script() -- Frame.drag 
 	local script = Instance.new('Script', Frame)
 
 	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
 end
-coroutine.wrap(SKOLRJ_fake_script)()
-local function OAMWQZL_fake_script() -- Frame.currency update 
+coroutine.wrap(MUUCBEF_fake_script)()
+local function YKMKZ_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -269,8 +277,24 @@ local function OAMWQZL_fake_script() -- Frame.currency update
 	end)
 	
 end
-coroutine.wrap(OAMWQZL_fake_script)()
-local function NBBKH_fake_script() -- targetgui.name shrink 
+coroutine.wrap(YKMKZ_fake_script)()
+local function JPURX_fake_script() -- Reset.Reset 
+	local script = Instance.new('Script', Reset)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local function reset()
+			for _, x in pairs(game:GetService('Players').LocalPlayer.Character:GetChildren()) do
+				if x:IsA("BasePart") or x:IsA('Accessory') then
+					x:Destroy()
+				end
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(JPURX_fake_script)()
+local function SCSCRDK_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -297,8 +321,8 @@ local function NBBKH_fake_script() -- targetgui.name shrink
 	end
 	
 end
-coroutine.wrap(NBBKH_fake_script)()
-local function SWMTZH_fake_script() -- targetgui.Script 
+coroutine.wrap(SCSCRDK_fake_script)()
+local function CMIS_fake_script() -- targetgui.Script 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
@@ -312,4 +336,4 @@ local function SWMTZH_fake_script() -- targetgui.Script
 		end
 	end)
 end
-coroutine.wrap(SWMTZH_fake_script)()
+coroutine.wrap(CMIS_fake_script)()
