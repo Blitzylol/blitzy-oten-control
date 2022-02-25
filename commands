@@ -23,13 +23,10 @@ print[[ --
             .nowallet / .unwallet   -   Unequips wallet for Alts.
             
             .nolag / .lagfree / .freelag   -   Limits CPU usage and disables rendering while tabbed.
-            .destroy   -   Destroys cash on the floor.
-	        .destroy   -   Mutes all sounds coming from Alt and Seller.
-	    
-	        -- DISABLED FOR NOW
+	        .mute   -   Mutes all sounds coming from Alt and Seller.
+	        
+	        .destroy   -   Destroys cash on the floor.
             .destroy2 / loopdestroy   -   Destroys cash on the floor every 20 seconds (cannot be stopped).
-	        -- DISABLED FOR NOW
-            
             
             .airlock / .float   -   Airlock/float alts.
             .airlockall / .floatall   -   Airlock/float alts and Seller.
@@ -48,7 +45,7 @@ print[[ --
             .lava / .base / .admin   -   Telerports Alts and Main to admin base.
             .club  -   Teleport Alts and Seller to club.
 	        .court  -   Teleport Alts and Seller to court.
-		.ufo / .alien   -   Teleport Alts and Seller to ufo.
+		    .ufo / .alien   -   Teleport Alts and Seller to ufo.
             
             ----=> Setups <=----
             
@@ -58,7 +55,6 @@ print[[ --
             ----=> Swagmode Crash <=---
             
             .crash   -   Crashes the server.
-	        .lowcrash / .crash   -   Crash for lowend (?).
 ]]
 
 game.StarterGui:SetCore("SendNotification", {
