@@ -16,14 +16,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 -- ANTI AFK
 
--- NOTIFICATION / INTRO
-
-
--- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
-
--- NOTIFICATION / INTRO
-
-
 
 
 
@@ -37,6 +29,7 @@ local me = game:GetService("Players").LocalPlayer.Name
 local Event = game:GetService("ReplicatedStorage").MainEvent
 local dropping = false
 local nostuck = math.random(-8, 8)
+local char = game:GetService("Players").LocalPlayer.Character
 
 -- NOTIFICATION
 local thumbType = Enum.ThumbnailType.HeadShot
@@ -109,6 +102,11 @@ local function mute()
 			sound.Volume = 0
 		end
 	end
+	for _, sound in pairs(game:GetService("Workspace"):DescendantAdded()) do
+		if sound.ClassName == "Sound" then
+			sound.Volume = 0
+		end
+	end
 
 	for _, sound2 in pairs(game:GetService("Players"):GetDescendants()) do
 		if sound2.ClassName == "Sound" then
@@ -176,8 +174,8 @@ end
 
 
 local function reset()
-	for _, x in pairs(workspace.Players[me]:GetChildren()) do
-		if x:IsA("BasePart") and x.Name ~= "HumanoidRootPart" then
+	for _, x in pairs(char:GetChildren()) do
+		if x:IsA("BasePart") or x:IsA('Accessory') then
 			x:Destroy()
 		end
 	end
@@ -186,7 +184,7 @@ end
 
 
 local function wallet()
-	game:GetService("Players")[me].Backpack.Wallet.Parent = game:GetService("Players")[me].Character
+	game:GetService("Players")[me].Backpack.Wallet.Parent = char
 end
 
 local function nowallet()
@@ -212,28 +210,54 @@ end
 
 local function bring()
 	if me ~= owner then
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
+		char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
 	end
 end
 
 
 
 local function freeze()
-	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
+	char.HumanoidRootPart.Anchored = true
 end
 
 local function unfreeze()
-	if game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored == true then
-		game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = false
+	if char.HumanoidRootPart.Anchored == true then
+		char.HumanoidRootPart.Anchored = false
 	end
+	
+	-- no fly anim
+	
+	function stopTracks()
+		for _, v in next, game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):GetPlayingAnimationTracks() do
+			if (v.Animation.AnimationId:match("rbxassetid")) then
+				v:Stop()
+			end
+		end
+	end
+	stopTracks()
 end
 
 
 
 local function airlock()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
+	local UniversalAnimation = Instance.new("Animation")
+	function loadAnimation(id)
+		if UniversalAnimation.AnimationId == id then
+			stopTracks()
+			UniversalAnimation.AnimationId = "1"
+		else
+			UniversalAnimation.AnimationId = id
+			local animationTrack = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):LoadAnimation(UniversalAnimation)
+			animationTrack:Play()
+		end
+	end
+	
+	char.HumanoidRootPart.Anchored = false
+	char.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
 	wait(0.1)
-	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
+	loadAnimation("rbxassetid://3541114300")
+	char.HumanoidRootPart.Anchored = true
+	
 end
 
 
@@ -244,19 +268,19 @@ end
 
 
 local function club()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
+	char.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
 end
 
 local function lava()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
+	char.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
 end
 local function court()
 	local nostuckc = math.random(-55, -42)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
+	char.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
 end
 local function ufo()
 	local nostucku = math.random(-40, -10)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
+	char.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
 end
 
 
@@ -269,19 +293,19 @@ local function qsetup()
 	if game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored == true then
 		game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = false
 	end
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(4, 6, 4)
+	char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(4, 6, 4)
 	wait(0.1)
 	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
 end
 
 local function qsetup2()
-	if game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored == true then
-		game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = false
+	if char.HumanoidRootPart.Anchored == true then
+		char.HumanoidRootPart.Anchored = false
 	end
 	local qset = math.random(1, 8)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(qset, 0, qset)
+	char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(qset, 0, qset)
 	wait(0.1)
-	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
+	char.HumanoidRootPart.Anchored = true
 end
 
 -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
