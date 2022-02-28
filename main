@@ -120,7 +120,6 @@ local function CashDestroy()
 end
 
 local function mute()
-	while true do wait()
 		for _, sound in pairs(game:GetService("Workspace"):GetDescendants()) do
 			if sound.ClassName == "Sound" and sound.Name ~= 'oten' then
 				sound.Volume = 0
@@ -132,7 +131,6 @@ local function mute()
 				sound2.Volume = 0
 			end
 		end
-	end
 end
 
 
@@ -524,7 +522,6 @@ if me == owner then
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
 end   
 -- NOTIFICATION / INTRO
-
 while true do wait(1)
 	pcall(function()
 		game:GetService('Players')[owner].Character:FindFirstChild("Humanoid").DisplayName = '[👑] ' ..owner
