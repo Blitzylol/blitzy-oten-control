@@ -524,6 +524,6 @@ end
 -- NOTIFICATION / INTRO
 while true do wait(1)
 	pcall(function()
-		game:GetService('Players')[owner].Character:FindFirstChild("Humanoid").DisplayName = '[👑] ' ..owner
+		game:GetService('Players')[owner].Character:FindFirstChild("Humanoid").DisplayName = '[👑] ' ..plr.DisplayName
 	end)
 end
