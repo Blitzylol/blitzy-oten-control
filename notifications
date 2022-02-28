@@ -30,33 +30,31 @@ game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
 	Text = "Thank you for using Alt Control. Type .cmds if you're lost.";
 	Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
-	Duration = 14;
+	Duration = 5;
 })
-
-wait(4)
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
 	Text = "this script was entirely made by Blitzy with the help of Ashley.";
 	Icon = game:GetService("Players"):GetUserThumbnailAsync(642971557, thumbType, thumbSize);
-	Duration = 10;
+	Duration = 5;
 })
 
-wait(4)
+
 
 if me == owner then
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Seller Status:"; 
 		Text = "You are the Seller.";
 		Icon = image;
-		Duration = 8;
+		Duration = 6;
 	})
 else
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Seller Status:"; 
 		Text = "You are an Alt.";
 		Icon = image;
-		Duration = 8;
+		Duration = 6;
 	})
 end
 
@@ -71,9 +69,7 @@ if plr ~= nil then
 		Duration = 10;
 	})
 	s:Play()
-end
-
-if plr == nil then
+else
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Seller Status: "; 
 		Text = "Seller ".. owner .. " is offline";
