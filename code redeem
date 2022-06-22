@@ -1,1 +1,2 @@
-print('ilovu')
+game:GetService("ReplicatedStorage").MainEvent:FireServer('EnterPromoCode', 'DHSUPRISE!')
+
