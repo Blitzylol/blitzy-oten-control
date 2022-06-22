@@ -1,7 +1,16 @@
+-- 6/22/2022 CODE REDEEMER
+-- 2/25/2022
+
+-- 2/28/2022
+-- Reset Fix
+
+getgenv().Seller = 'blitzyontop'
+
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
 repeat wait() until game:GetService("Players").LocalPlayer.Character
 repeat wait() until game:GetService("Players").LocalPlayer.Backpack.Wallet
 repeat wait() until game:IsLoaded()
+wait(4)
 
 
 -- REPEAT WAIT
@@ -504,6 +513,10 @@ plr.Chatted:Connect(function(msg)
 		end
 	end
 
+	if msg == ".redeem" or msg == ".code" then
+			loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/code%20redeem")()
+	end
+
 
 end)
 
@@ -512,7 +525,7 @@ end)
 
 -- NOTIFICATION / INTRO
 
-loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications")()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications?token=GHSAT0AAAAAABV2X6R2N5FJUITB2CD6JTL6YVRWFSA")()
 wait(2)
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
 if me == owner then
