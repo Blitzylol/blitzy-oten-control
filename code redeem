@@ -1,2 +1,10 @@
-game:GetService("ReplicatedStorage").MainEvent:FireServer('EnterPromoCode', 'DHSUPRISE!')
+codes = {
+    'DHSUPRISE!',
+    'JUNE2022',
+}
 
+for i,v in ipairs(codes) do
+    game:GetService("ReplicatedStorage").MainEvent:FireServer('EnterPromoCode', v)
+    wait(1.5)
+    print(v)
+end
