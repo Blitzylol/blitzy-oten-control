@@ -35,8 +35,8 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Welcome ".. me; 
-	Text = "this script was entirely made by Blitzy with the help of Ashley.";
-	Icon = game:GetService("Players"):GetUserThumbnailAsync(642971557, thumbType, thumbSize);
+	Text = "this script was entirely made by Blitzy.";
+	Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
 	Duration = 8;
 })
 
