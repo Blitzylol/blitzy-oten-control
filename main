@@ -1,4 +1,4 @@
--- 6/22/2022 rip target gui
+-- 6/23/2022 cleaner code?
 -- 6/22/2022 CODE REDEEMER
 -- 2/25/2022
 
@@ -75,6 +75,12 @@ local function noti(textn)
 end
 -- NOTIFICATION
 
+-- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT --
+
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications?token=GHSAT0AAAAAABV2X6R2N5FJUITB2CD6JTL6YVRWFSA")()
+
+-- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT -- NOTIFICATION SCRIPT --
+
 
 --CASH COUNTER
 
@@ -87,7 +93,7 @@ local function nolag()
 	local WindowFocusReleasedFunction = function()
 		RunService:Set3dRenderingEnabled(false)
 		xdlolframe.Visible = true
-		setfpscap(10)
+		setfpscap(15)
 		return
 	end
 
@@ -122,8 +128,7 @@ end
 
 local function CashDestroy()
 	for _, c in pairs(workspace.Ignored.Drop:GetDescendants()) do
-		if c.Name == "MoneyDrop"
-			or BrickColor == "Bright green" then
+		if c.Name == "MoneyDrop" and BrickColor == "Bright green" then
 			c:Destroy()
 		end
 	end
@@ -180,19 +185,12 @@ end
 
 -- ALT AND MAIN CONTROLS
 
-
-
-local function drop()
-	local func = "DropMoney"
-	local amount = "10000"
-	Event:FireServer(func, amount)
-end
-
-
 local function droploop()
 	local droploop 
 	droploop = game:GetService("RunService").RenderStepped:Connect(function()
-		drop()
+
+		Event:FireServer("DropMoney", "10000")
+
 		if dropping == false then
 			droploop:Disconnect()
 		end
@@ -212,7 +210,7 @@ end
 
 
 local function wallet()
-	game:GetService("Players")[me].Backpack.Wallet.Parent = char
+	game:GetService("Players")[me].Backpack.Wallet.Parent = game:GetService("Players").LocalPlayer.Character
 end
 
 local function nowallet()
@@ -222,35 +220,30 @@ end
 
 
 local function block()
-	local a = "Block"
-	local b = true
-	Event:FireServer(a, b)
+	Event:FireServer("Block", true)
 end
 
 local function unblock()
-	local c = "Block"
-	local d = false
-	local Event =
-		Event:FireServer(c, d)
+	Event:FireServer("Block", false)
 end
 
 
 
 local function bring()
 	if me ~= owner then
-		char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
 	end
 end
 
 
 
 local function freeze()
-	char.HumanoidRootPart.Anchored = true
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
 end
 
 local function unfreeze()
-	if char.HumanoidRootPart.Anchored == true then
-		char.HumanoidRootPart.Anchored = false
+	if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored == true then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
 	end
 
 	-- no fly anim
@@ -280,11 +273,11 @@ local function airlock()
 		end
 	end
 
-	char.HumanoidRootPart.Anchored = false
-	char.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
 	wait(0.1)
 	loadAnimation("rbxassetid://3541114300")
-	char.HumanoidRootPart.Anchored = true
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
 
 end
 
@@ -295,19 +288,19 @@ end
 
 
 local function club()
-	char.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
 end
 
 local function lava()
-	char.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
 end
 local function court()
 	local nostuckc = math.random(-55, -42)
-	char.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
 end
 local function ufo()
 	local nostucku = math.random(-40, -10)
-	char.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
 end
 
 
@@ -317,6 +310,7 @@ end
 
 
 local function qsetup()
+	local me = game:GetService("Players").LocalPlayer.Name
 	if game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored == true then
 		game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = false
 	end
@@ -326,13 +320,13 @@ local function qsetup()
 end
 
 local function qsetup2()
-	if char.HumanoidRootPart.Anchored == true then
-		char.HumanoidRootPart.Anchored = false
+	if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored == true then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
 	end
 	local qset = math.random(1, 8)
-	char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(qset, 0, qset)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(qset, 0, qset)
 	wait(0.1)
-	char.HumanoidRootPart.Anchored = true
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
 end
 
 -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
@@ -470,12 +464,12 @@ plr.Chatted:Connect(function(msg)
 
 
 
-	if msg == ".lava" or msg == ".base" or msg == ".admin" or  msg == ".ashley"  then
+	if msg == ".lava" or msg == ".base" or msg == ".admin" then
 		if me == owner then
 			lava()
 		end
 	end
-	if msg == ".club" or msg == ".toby" then
+	if msg == ".club" then
 		if me == owner then
 			club()
 		end
@@ -497,6 +491,12 @@ plr.Chatted:Connect(function(msg)
 	if msg == ".crash" or msg == ".lowcrash" or msg == ".crash2" then
 		lowcrasher()
 		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
+		while true do wait()
+			game:GetService("RunService"):Set3dRenderingEnabled(true)
+			xdlolframe.Visible = false
+			setfpscap(100)
+			dropping = false
+		end
 	end
 
 	-- QUICK SETUPS
@@ -521,16 +521,11 @@ plr.Chatted:Connect(function(msg)
 
 end)
 
-
-
-
--- NOTIFICATION / INTRO
-
-loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications?token=GHSAT0AAAAAABV2X6R2N5FJUITB2CD6JTL6YVRWFSA")()
-wait(2)
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
 if me == owner then
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")()
+	--loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/Target")()
+	--noti('Press Right-Shift to Toggle Target-GUI')
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
 end   
 -- NOTIFICATION / INTRO
