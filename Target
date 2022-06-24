@@ -1,540 +1,339 @@
--- 6/22/2022 CODE REDEEMER
--- 2/25/2022
+-- 6/24/2022 TARGET REVIVEDD!!!!
 
--- 2/28/2022
--- Reset Fix
+local targetgui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local currency = Instance.new("TextLabel")
+local unview = Instance.new("TextButton")
+local view = Instance.new("TextButton")
+local bring = Instance.new("TextButton")
+local Goto = Instance.new("TextButton")
+local player = Instance.new("TextBox")
+local otencontrol = Instance.new("TextLabel")
+local Reset = Instance.new("TextButton")
 
-repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
-repeat wait() until game:GetService("Players").LocalPlayer.Character
-repeat wait() until game:GetService("Players").LocalPlayer.Backpack.Wallet
-repeat wait() until game:IsLoaded()
-wait(4)
+--Properties:
 
+targetgui.Name = "targetgui"
+targetgui.Parent = game.CoreGui
+targetgui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- REPEAT WAIT
+Frame.Parent = targetgui
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.00670140982, 0, 0.446625769, 0)
+Frame.Size = UDim2.new(0, 200, 0, 346)
 
+currency.Name = "currency"
+currency.Parent = Frame
+currency.BackgroundColor3 = Color3.fromRGB(95, 255, 87)
+currency.BackgroundTransparency = 1.000
+currency.Position = UDim2.new(0.0599999987, 0, 0, 0)
+currency.Size = UDim2.new(0, 176, 0, 29)
+currency.Font = Enum.Font.GothamMedium
+currency.Text = "$ NIL"
+currency.TextColor3 = Color3.fromRGB(120, 236, 111)
+currency.TextSize = 14.000
 
--- ANTI AFK
-local vu = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-	wait(1)
-	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
--- ANTI AFK
+unview.Name = "unview"
+unview.Parent = Frame
+unview.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+unview.BorderSizePixel = 0
+unview.Position = UDim2.new(0.0599999987, 0, 0.439213932, 0)
+unview.Size = UDim2.new(0, 176, 0, 18)
+unview.Font = Enum.Font.Ubuntu
+unview.Text = "Unview"
+unview.TextColor3 = Color3.fromRGB(255, 255, 255)
+unview.TextSize = 14.000
 
--- DARK IDLE
+view.Name = "view"
+view.Parent = Frame
+view.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+view.BorderSizePixel = 0
+view.Position = UDim2.new(0.0599999987, 0, 0.361179233, 0)
+view.Size = UDim2.new(0, 176, 0, 18)
+view.Font = Enum.Font.Ubuntu
+view.Text = "View"
+view.TextColor3 = Color3.fromRGB(255, 255, 255)
+view.TextSize = 14.000
 
-local nofocus = Instance.new("ScreenGui")
-local xdlolframe = Instance.new("Frame")
-local xdlol = Instance.new("TextLabel")
-local xdlolcred = Instance.new("TextLabel")
+bring.Name = "bring"
+bring.Parent = Frame
+bring.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+bring.BorderSizePixel = 0
+bring.Position = UDim2.new(0.0599999987, 0, 0.286034703, 0)
+bring.Size = UDim2.new(0, 176, 0, 18)
+bring.Font = Enum.Font.Ubuntu
+bring.Text = "Bring"
+bring.TextColor3 = Color3.fromRGB(255, 255, 255)
+bring.TextSize = 14.000
 
-nofocus.Name = "nofocus"
-nofocus.Parent = game.CoreGui
-nofocus.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Goto.Name = "Goto"
+Goto.Parent = Frame
+Goto.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+Goto.BorderSizePixel = 0
+Goto.Position = UDim2.new(0.0599999987, 0, 0.208000004, 0)
+Goto.Size = UDim2.new(0, 176, 0, 18)
+Goto.Font = Enum.Font.Ubuntu
+Goto.Text = "Goto"
+Goto.TextColor3 = Color3.fromRGB(255, 255, 255)
+Goto.TextSize = 14.000
 
-xdlolframe.Name = "xdlolframe"
-xdlolframe.Parent = nofocus
-xdlolframe.BackgroundColor3 = Color3.fromRGB(41, 41, 41)
-xdlolframe.Size = UDim2.new(0, 5000, 0, 5000)
-xdlolframe.Visible = false
-xdlolframe.ZIndex = 10
+player.Name = "player"
+player.Parent = Frame
+player.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+player.BorderSizePixel = 0
+player.Position = UDim2.new(0.0599999987, 0, 0.0838150308, 0)
+player.Size = UDim2.new(0, 176, 0, 34)
+player.Font = Enum.Font.SourceSans
+player.PlaceholderText = "[ PLAYER NAME ]"
+player.Text = ""
+player.TextColor3 = Color3.fromRGB(255, 255, 255)
+player.TextSize = 14.000
 
--- DARK IDLE
+otencontrol.Name = "otencontrol"
+otencontrol.Parent = Frame
+otencontrol.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+otencontrol.BackgroundTransparency = 1.000
+otencontrol.Position = UDim2.new(0, 0, 0.933526039, 0)
+otencontrol.Size = UDim2.new(0, 200, 0, 23)
+otencontrol.Font = Enum.Font.SourceSansBold
+otencontrol.Text = "OTEN CONTROL"
+otencontrol.TextColor3 = Color3.fromRGB(255, 255, 255)
+otencontrol.TextSize = 17.000
 
+Reset.Name = "Reset"
+Reset.Parent = Frame
+Reset.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+Reset.BorderSizePixel = 0
+Reset.Position = UDim2.new(0.0599999987, 0, 0.514358461, 0)
+Reset.Size = UDim2.new(0, 176, 0, 18)
+Reset.Font = Enum.Font.Ubuntu
+Reset.Text = "Reset"
+Reset.TextColor3 = Color3.fromRGB(255, 255, 255)
+Reset.TextSize = 14.000
 
+-- Scripts:
 
+local function NBNKE_fake_script() -- unview.unview 
+	local script = Instance.new('Script', unview)
 
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+	end)
 
-
--- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
-
-local owner = Seller
-local plr = game:GetService("Players")[owner]
-local me = game:GetService("Players").LocalPlayer.Name
-local Event = game:GetService("ReplicatedStorage").MainEvent
-local dropping = false
-local nostuck = math.random(-8, 8)
-local char = game:GetService("Players").LocalPlayer.Character
-
--- NOTIFICATION
-local thumbType = Enum.ThumbnailType.HeadShot
-local thumbSize = Enum.ThumbnailSize.Size420x420
-
-local function noti(textn)
-	game.StarterGui:SetCore("SendNotification", {
-		Title = "Oten Control"; 
-		Text = textn;
-		Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
-		Duration = 5;
-	})
 end
--- NOTIFICATION
+coroutine.wrap(NBNKE_fake_script)()
+local function BCRIBJ_fake_script() -- view.view 
+	local script = Instance.new('Script', view)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		game.Workspace.Camera.CameraSubject = game.Players[target].Character.Humanoid
+	end)
+
+end
+coroutine.wrap(BCRIBJ_fake_script)()
+local function XBJZK_fake_script() -- bring.bring script 
+	local script = Instance.new('Script', bring)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local me = game:GetService("Players").LocalPlayer.Name
+		local char = game:GetService("Players").LocalPlayer.Character
+		local Event = game:GetService("ReplicatedStorage").MainEvent
+
+		local bring = true
+
+		local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+		--
+
+		pcall(function()
+			if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Knife]') and not game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Knife]') then
+				repeat wait()
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Knife] - $150"].Head.CFrame
+					wait(0.2)
+					fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Knife] - $150"].ClickDetector)
+				until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Knife]') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Knife]')
+			end
+		end)
 
 
---CASH COUNTER
-
-local function nolag()
-
-
-	local UserInputService = game:GetService("UserInputService")
-	local RunService = game:GetService("RunService")
-
-	local WindowFocusReleasedFunction = function()
-		RunService:Set3dRenderingEnabled(false)
-		xdlolframe.Visible = true
-		setfpscap(10)
-		return
-	end
-
-	local WindowFocusedFunction = function()
-		RunService:Set3dRenderingEnabled(true)
-		xdlolframe.Visible = false
-		setfpscap(100)
-		return
-	end
-
-	local Initialize = function()
-		UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
-		UserInputService.WindowFocused:Connect(WindowFocusedFunction)
-		return
-	end
-	Initialize()
-
-	--FPS BOOST
-
-	for _,v in pairs(workspace:GetDescendants()) do
-		if v.ClassName == "Part"
-			or v.ClassName == "SpawnLocation"
-			or v.ClassName == "WedgePart"
-			or v.ClassName == "Terrain"
-			or v.ClassName == "MeshPart" then
-			v.Material = "Plastic"
+		local function tooluse()
+			pcall(function()
+				game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Knife]').Parent = game:GetService("Players").LocalPlayer.Character
+			end)    
 		end
-	end
 
-end
-
-
-local function CashDestroy()
-	for _, c in pairs(workspace.Ignored.Drop:GetDescendants()) do
-		if c.Name == "MoneyDrop"
-			or BrickColor == "Bright green" then
-			c:Destroy()
+		local function grab()
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame
+			game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", true)
+			wait(0.5)
 		end
-	end
-end
 
-local function mute()
-		for _, sound in pairs(game:GetService("Workspace"):GetDescendants()) do
-			if sound.ClassName == "Sound" and sound.Name ~= 'oten' then
-				sound.Volume = 0
+		local function reach()
+
+			local tool = game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Knife]')
+
+			local a = Instance.new("SelectionBox", tool.Handle)
+			a.Adornee = tool.Handle
+			tool.Handle.Size = Vector3.new(50, 50, 50)
+			tool.Handle.Transparency = 1
+			tool.GripPos = Vector3.new(0, 0, 0)
+
+		end
+
+		tooluse()
+		reach()
+
+		if target and bring then
+			if game.Players[target].Character.BodyEffects['K.O'].Value ~= true then
+				repeat wait()
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame + game:GetService("Players")[target].Character.UpperTorso.CFrame.LookVector * -3
+					tooluse()
+					game:GetService'VirtualUser':CaptureController()
+					game:GetService'VirtualUser':Button1Down(Vector2.new(9e9, 9e9))
+				until game:GetService("Players")[target].Character.BodyEffects["K.O"].Value == true
+
+				repeat wait()
+					grab()
+				until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
+
+				wait(0.6)
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+			else
+				repeat wait()
+					grab()
+				until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
+				wait(0.6)
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 			end
 		end
-
-		for _, sound2 in pairs(game:GetService("Players"):GetDescendants()) do
-			if sound2.ClassName == "Sound" then
-				sound2.Volume = 0
-			end
-		end
-end
-
-
-
--- CRASHER
-
-local function lowcrasher()
-
-
-	for _,v in pairs(workspace:GetDescendants()) do
-		if v.ClassName == "Part"
-			or v.ClassName == "SpawnLocation"
-			or v.ClassName == "WedgePart"
-			or v.ClassName == "Terrain"
-			or v.ClassName == "MeshPart" then
-			v.BrickColor = BrickColor.new(155, 155, 155)
-			v.Material = "Plastic"
-		end
-	end
-
-	for _,v in pairs(workspace:GetDescendants()) do
-		if v.ClassName == "Decal"
-			or v.ClassName == "Texture" then
-			v:Destroy()
-		end
-	end --GRAPHIC SETTINGS
-
-
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
-end
-
--- CRASHER
-
-
-
-
-
--- ALT AND MAIN CONTROLS
-
-
-
-local function drop()
-	local func = "DropMoney"
-	local amount = "10000"
-	Event:FireServer(func, amount)
-end
-
-
-local function droploop()
-	local droploop 
-	droploop = game:GetService("RunService").RenderStepped:Connect(function()
-		drop()
-		if dropping == false then
-			droploop:Disconnect()
-		end
-	end) --
-end
-
-
-
-local function reset()
-	for _, x in pairs(char:GetChildren()) do
-		if x:IsA("BasePart") or x:IsA('Accessory') then
-			x:Destroy()
-		end
-	end
-end
-
-
-
-local function wallet()
-	game:GetService("Players")[me].Backpack.Wallet.Parent = char
-end
-
-local function nowallet()
-	game:GetService("Players")[me].Character.Humanoid:UnequipTools()
-end
-
-
-
-local function block()
-	local a = "Block"
-	local b = true
-	Event:FireServer(a, b)
-end
-
-local function unblock()
-	local c = "Block"
-	local d = false
-	local Event =
-		Event:FireServer(c, d)
-end
-
-
-
-local function bring()
-	if me ~= owner then
-		char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
-	end
-end
-
-
-
-local function freeze()
-	char.HumanoidRootPart.Anchored = true
-end
-
-local function unfreeze()
-	if char.HumanoidRootPart.Anchored == true then
-		char.HumanoidRootPart.Anchored = false
-	end
-
-	-- no fly anim
-
-	function stopTracks()
-		for _, v in next, game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):GetPlayingAnimationTracks() do
-			if (v.Animation.AnimationId:match("rbxassetid")) then
-				v:Stop()
-			end
-		end
-	end
-	stopTracks()
-end
-
-
-
-local function airlock()
-	local UniversalAnimation = Instance.new("Animation")
-	function loadAnimation(id)
-		if UniversalAnimation.AnimationId == id then
-			stopTracks()
-			UniversalAnimation.AnimationId = "1"
-		else
-			UniversalAnimation.AnimationId = id
-			local animationTrack = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):LoadAnimation(UniversalAnimation)
-			animationTrack:Play()
-		end
-	end
-
-	char.HumanoidRootPart.Anchored = false
-	char.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
-	wait(0.1)
-	loadAnimation("rbxassetid://3541114300")
-	char.HumanoidRootPart.Anchored = true
-
-end
-
-
-
--- PLACES
-
-
-
-local function club()
-	char.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
-end
-
-local function lava()
-	char.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
-end
-local function court()
-	local nostuckc = math.random(-55, -42)
-	char.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
-end
-local function ufo()
-	local nostucku = math.random(-40, -10)
-	char.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
-end
-
-
-
--- QUICK SETUPS
-
-
-
-local function qsetup()
-	if game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored == true then
-		game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = false
-	end
-	char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(4, 6, 4)
-	wait(0.1)
-	game:GetService("Workspace").Players[me].HumanoidRootPart.Anchored = true
-end
-
-local function qsetup2()
-	if char.HumanoidRootPart.Anchored == true then
-		char.HumanoidRootPart.Anchored = false
-	end
-	local qset = math.random(1, 8)
-	char.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(qset, 0, qset)
-	wait(0.1)
-	char.HumanoidRootPart.Anchored = true
-end
-
--- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
-
-
-
-
-
-
--- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS -- CHAT FUNCTIONS --
-plr.Chatted:Connect(function(msg)
-
-	if msg == ".commands" or msg == ".cmds" or msg == ".cmd" then
-		if owner == me then
-			loadstring(game:HttpGet('https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/commands'))()
-		end
-	end
-	if msg == ".check" then
-		noti(me.." is still active.")
-	end
-
-
-
-
-	if msg == ".drop" or msg == ".altsdrop" or msg == ".altdrop" then
-		if me ~= owner then
-			dropping = true
-			if dropping == true then
-				noti('Alts are now dropping!')
-				droploop()
-			end
-
-		end
-	end
-	if msg == ".drop2" or msg == ".dropall" then
-		dropping = true
-		if dropping == true then
-			droploop()
-		end
-	end
-	if msg == ".stop" or msg == ".nodrop" then
-		if dropping == true then
-			dropping = false
-			noti('Successfully stopped dropping.')
-		end
-	end
-	if msg == ".wallet" then
-		wallet()
-	end
-	if msg == ".unwallet" or msg == ".nowallet" then
-		nowallet()
-	end
-
-
-
-
-	if msg == ".nolag" or msg == ".lagfree" or msg == ".freelag" then
-		nolag()
-	end
-	if msg == ".mute" then
-		mute()
-		noti('Muted all sound coming from alt and seller.')
-	end
-	if msg == ".bring" or msg == ".bringalts" then
-		bring()
-	end
-	if msg == ".re" or msg == ".reset" then
-		if me ~= owner then
-			reset()	
-		end
-	end
-
-
-
-	if msg == ".destroy" then
-		if me ~= owner then
-			CashDestroy()
-			noti('Destroyed cash on alts.')
-		end
-	end
-
-
-
-	if msg == ".loopdestroy" or msg == ".destroy2" then
-		if me == owner then
-			noti('Destroying cash every 2 mins this function cannot be stopped.')
-		end
-
-		-- OWNER NOTIFICATION 
-
-		if me ~= owner then
-			CashDestroy()
-			while wait(120) do
-				CashDestroy()
-			end
-		end
-	end
-
-
-
-
-	if msg == ".airlock" or msg == ".float" then
-		if me ~= owner then
-			airlock()
-		end
-	end
-	if msg == ".airlockall" or msg == ".floatall" then
-		airlock()	
-	end
-
-
-
-	if msg == ".freeze" then
-		if me ~= owner then
-			freeze()	
-		end
-	end
-	if msg == ".unfreeze" or msg == ".nofreeze" or msg == ".unairlock"  or msg == ".noairlock" or msg == ".nofloat" or msg == ".unfloat" then
-		unfreeze()
-	end
-
-
-
-	if msg == ".block" then
-		if me ~= owner then
-			block()
-		end
-	end
-	if msg == ".block2" then
-		block()
-	end
-	if msg == ".noblock" or msg == ".unblock" then
-		unblock()
-	end
-
-
-
-	if msg == ".lava" or msg == ".base" or msg == ".admin" or  msg == ".ashley"  then
-		if me == owner then
-			lava()
-		end
-	end
-	if msg == ".club" or msg == ".toby" then
-		if me == owner then
-			club()
-		end
-	end
-	if msg == ".court" then
-		if me == owner then
-			court()
-		end
-	end
-	if msg == ".ufo" or msg == ".alien" then
-		if me == owner then
-			ufo()
-		end
-	end
-
-
-
-
-	if msg == ".crash" or msg == ".lowcrash" or msg == ".crash2" then
-		lowcrasher()
-		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
-	end
-
-	-- QUICK SETUPS
-
-
-	if msg == ".qsetup" then
-		if me ~= owner then
-			qsetup()
-		end
-	end
-
-	if msg == ".qsetup2" then
-		if me ~= owner then
-			qsetup2()
-		end
-	end
-
-	if msg == ".redeem" or msg == ".code" then
-			loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/code%20redeem")()
-	end
-
-
-end)
-
-
-
-
--- NOTIFICATION / INTRO
-
-loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/notifications?token=GHSAT0AAAAAABV2X6R2N5FJUITB2CD6JTL6YVRWFSA")()
-wait(2)
--- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
-if me == owner then
-	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")()
-	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/Target")()
-	noti('Press Right-Shift to Toggle Target-GUI')
-	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
-end   
--- NOTIFICATION / INTRO
-while true do wait(1)
-	pcall(function()
-		game:GetService('Players')[owner].Character:FindFirstChild("Humanoid").DisplayName = '[👑] ' ..plr.DisplayName
 	end)
 end
+coroutine.wrap(XBJZK_fake_script)()
+local function XDNFXRX_fake_script() -- Goto.goto script 
+	local script = Instance.new('Script', Goto)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local me = game:GetService("Players").LocalPlayer.Name
+		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
+	end)
+end
+coroutine.wrap(XDNFXRX_fake_script)()
+local function LUYSQG_fake_script() -- Frame.drag 
+	local script = Instance.new('Script', Frame)
+
+	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
+end
+coroutine.wrap(LUYSQG_fake_script)()
+local function MBLASS_fake_script() -- Frame.currency update 
+	local script = Instance.new('Script', Frame)
+
+
+	function comma_value(n) -- credit http://richard.warburton.it
+		local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
+		return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
+	end
+
+	while true do wait()
+		pcall(function()
+			local money = game:GetService("Players")[target].DataFolder.Currency.Value
+			currency.Text = (comma_value('$'..money))
+		end)
+	end
+
+
+end
+coroutine.wrap(MBLASS_fake_script)()
+local function CDBSGO_fake_script() -- Reset.Reset 
+	local script = Instance.new('Script', Reset)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+
+		for _, x in pairs(game:GetService('Players').LocalPlayer.Character:GetChildren()) do
+			if x:IsA("BasePart") or x:IsA('Accessory') then
+				x:Destroy()
+			end
+		end
+
+	end)
+
+end
+coroutine.wrap(CDBSGO_fake_script)()
+local function DAHY_fake_script() -- targetgui.name shrink 
+	local script = Instance.new('Script', targetgui)
+
+	local function ShrinkName()
+		player.FocusLost:connect(function()
+			for i,v in pairs(game.Players:GetPlayers()) do
+				if v.Name:lower():match("^"..player.Text:lower()) or v.DisplayName:lower():match("^"..player.Text:lower()) then
+					target = v.Name
+					targetdisp = v.DisplayName
+					player.Text = target..' / '..targetdisp
+					break
+				end
+			end
+		end)
+	end
+
+	ShrinkName()
+
+end
+coroutine.wrap(DAHY_fake_script)()
+local function CJKK_fake_script() -- targetgui.toggle gui 
+	local script = Instance.new('Script', targetgui)
+
+	local ui = script.Parent.Frame
+	game:GetService("UserInputService").InputBegan:Connect(function(key, gp)
+		if key.KeyCode == Enum.KeyCode.Insert then
+			if ui.Visible == true then
+				ui.Visible = false
+			elseif ui.Visible == false then
+				ui.Visible = true
+			end
+		end
+	end)
+end
+coroutine.wrap(CJKK_fake_script)()
+local function ZPCUI_fake_script() -- targetgui.anticheat 
+	local script = Instance.new('Script', targetgui)
+
+	assert(getrawmetatable)
+	gmt = getrawmetatable(game)
+	setreadonly(gmt, false)
+	old = gmt.__namecall
+	gmt.__namecall =
+		newcclosure(
+			function(self, ...)
+				local args = {...}
+				if tostring(args[1]) == "BreathingHAMON" then
+				return
+			elseif tostring(args[1]) == "TeleportDetect" then
+				return
+			elseif tostring(args[1]) == "CHECKER_1" then
+				return
+			elseif tostring(args[1]) == "CHECKER" then
+				return
+			elseif tostring(args[1]) == "GUI_CHECK" then
+				return
+			elseif tostring(args[1]) == "OneMoreTime" then
+				return
+			elseif tostring(args[1]) == "checkingSPEED" then
+				return
+			elseif tostring(args[1]) == "BANREMOTE" then
+				return
+			elseif tostring(args[1]) == "PERMAIDBAN" then
+				return
+			elseif tostring(args[1]) == "KICKREMOTE" then
+				return
+			elseif tostring(args[1]) == "BR_KICKPC" then
+				return end
+
+				return old(self, ...)
+			end)
+
+end
+coroutine.wrap(ZPCUI_fake_script)()
