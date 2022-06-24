@@ -1,3 +1,4 @@
+-- 6/24/2022 TARGET REVIVED!!!11
 -- 6/23/2022 cleaner code?
 -- 6/22/2022 CODE REDEEMER
 -- 2/25/2022
@@ -524,8 +525,8 @@ end)
 -- loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/intro")() -- DISABLED INTRO
 if me == owner then
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")()
-	--loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/Target")()
-	--noti('Press Right-Shift to Toggle Target-GUI')
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/Target")()
+	noti('Press Insert to Toggle Target-GUI')
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
 end   
 -- NOTIFICATION / INTRO
