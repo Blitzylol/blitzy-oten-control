@@ -1,6 +1,6 @@
 codes = {
     'DHSUPRISE!',
-    'JUNE2022',
+    '2022JUNE',
 }
 
 for i,v in ipairs(codes) do
