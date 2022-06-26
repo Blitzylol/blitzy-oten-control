@@ -1,5 +1,3 @@
---Target GUI revived111
-
 local targetgui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local currency = Instance.new("TextLabel")
@@ -114,76 +112,76 @@ view.TextSize = 14.000
 
 -- Scripts:
 
-local function IMTKBU_fake_script() -- atk.autokill 
+local function SSOVOX_fake_script() -- atk.autokill 
 	local script = Instance.new('Script', atk)
 
 	local button = script.Parent
 	button.MouseButton1Click:Connect(function()
+	
 		local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
 		local antifall = Instance.new("BodyVelocity", game.Players.LocalPlayer.Character.HumanoidRootPart)
 		antifall.Velocity = Vector3.new(0,0,0)
-		
+	
 		if atk.Text == 'Autokill' then
-		atk.Text = 'Stop Autokill'
+			atk.Text = 'Stop Autokill'
 	
-		local me = game:GetService("Players").LocalPlayer.Name
-		local char = game:GetService("Players").LocalPlayer.Character
-		local Event = game:GetService("ReplicatedStorage").MainEvent
+			local me = game:GetService("Players").LocalPlayer.Name
+			local char = game:GetService("Players").LocalPlayer.Character
+			local Event = game:GetService("ReplicatedStorage").MainEvent
 	
 	
-		local function tooluse()
-			pcall(function()
-				game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('Combat').Parent = game:GetService("Players").LocalPlayer.Character
-			end)    
-		end
-	
-		local function noclip()
-			for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA("BasePart") and v.CanCollide == true then
-					v.CanCollide = false
-				end
+			local function tooluse()
+				pcall(function()
+					game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]').Parent = game:GetService("Players").LocalPlayer.Character
+				end)    
 			end
-		end
 	
-		local function reach()
-			local success, err = pcall(function()
-				if game.Players.LocalPlayer.Character.BodyEffects.Attacking.Value == true then
-					for i,v in pairs(game:GetService('Players'):GetChildren()) do
-						if (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.LeftHand.Position).Magnitude <= 50 then
-							if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
-								if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):FindFirstChild('Handle') then
-									firetouchinterest(game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle, v.Character.UpperTorso, 0)
-								else
-									firetouchinterest(game.Players.LocalPlayer.Character['RightHand'], v.Character.UpperTorso, 0)
-									firetouchinterest(game.Players.LocalPlayer.Character['LeftHand'], v.Character.UpperTorso, 0)
-									firetouchinterest(game.Players.LocalPlayer.Character['RightFoot'], v.Character.UpperTorso, 0)
-									firetouchinterest(game.Players.LocalPlayer.Character['LeftFoot'], v.Character.UpperTorso, 0)
-									firetouchinterest(game.Players.LocalPlayer.Character['RightLowerLeg'], v.Character.UpperTorso, 0)
-									firetouchinterest(game.Players.LocalPlayer.Character['LeftLowerLeg'], v.Character.UpperTorso, 0)
-								end
-							end
-						end
+			local function noclip()
+				for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+					if v:IsA("BasePart") and v.CanCollide == true then
+						v.CanCollide = false
 					end
 				end
+			end
+	
+			local function reach()
+				local tool = game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
+	
+				local a = Instance.new("SelectionBox", tool.Handle)
+				a.Adornee = tool.Handle
+				tool.Handle.Size = Vector3.new(50, 50, 50)
+				tool.Handle.Transparency = 1
+				tool.GripPos = Vector3.new(0, 0, 0)
+			end
+	
+			pcall(function()
+				if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') and not game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]') then
+					repeat wait()
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].Head.CFrame
+						wait(0.2)
+						fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].ClickDetector)
+					until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
+				end
 			end)
-		end
-			
+	
+			tooluse()
+			reach()
 	
 			game:GetService('RunService'):BindToRenderStep("autokill", 0 , function()
-				
+	
 				if target then
 					if game.Players[target].Character.BodyEffects['K.O'].Value ~= true then
 						noclip()
 						reach()
 						tooluse()
 						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame * CFrame.new(0,-10,0)
-						game:GetService("Players").LocalPlayer.Character:FindFirstChild('Combat'):Activate()
+						game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]'):Activate()
 					elseif game.Players[target].Character.BodyEffects['Dead'].Value ~= true then
 						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.Head.CFrame
 						game:GetService("ReplicatedStorage").MainEvent:FireServer('Stomp')
 					else
 						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-267.154419, 93.0478668, -657.472717, -0.884925306, -7.19353133e-10, 0.465732992, 2.01643235e-09, 1, 5.37592371e-09, -0.465732992, 5.69641001e-09, -0.884925306)
-						game:GetService("Players").LocalPlayer.Character:FindFirstChild('Combat'):Activate()
+						game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]'):Activate()
 					end
 				end
 	
@@ -193,95 +191,97 @@ local function IMTKBU_fake_script() -- atk.autokill
 			atk.Text = 'Autokill'
 			game:GetService('RunService'):UnbindFromRenderStep("autokill")
 			game.Players.LocalPlayer.Character.HumanoidRootPart.BodyVelocity:Destroy()
-			wait(1)
+			wait(0.6)
 			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-			
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+	
 		end
 		
 	end)
 	
 		
 end
-coroutine.wrap(IMTKBU_fake_script)()
-local function LMTF_fake_script() -- bring.bring script 
+coroutine.wrap(SSOVOX_fake_script)()
+local function LGZOBN_fake_script() -- bring.bring script 
 	local script = Instance.new('Script', bring)
 
 	local button = script.Parent
 	button.MouseButton1Click:Connect(function()
-	local me = game:GetService("Players").LocalPlayer.Name
-	local char = game:GetService("Players").LocalPlayer.Character
-	local Event = game:GetService("ReplicatedStorage").MainEvent
-		
-	local bring = true
+		local me = game:GetService("Players").LocalPlayer.Name
+		local char = game:GetService("Players").LocalPlayer.Character
+		local Event = game:GetService("ReplicatedStorage").MainEvent
 	
-	local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-	--
+		local bring = true
 	
-	pcall(function()
-		if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Knife]') and not game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Knife]') then
-			repeat wait()
-				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Knife] - $150"].Head.CFrame
-				wait(0.2)
-				fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Knife] - $150"].ClickDetector)
-			until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Knife]') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Knife]')
-		end
-	end)
+		local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+		--
 	
-	
-	local function tooluse()
 		pcall(function()
-			game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Knife]').Parent = game:GetService("Players").LocalPlayer.Character
-		end)    
-	end
+			if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') and not game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]') then
+				repeat wait()
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].Head.CFrame
+					wait(0.2)
+					fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].ClickDetector)
+				until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
+			end
+		end)
 	
-	local function grab()
-		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame
-		game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", true)
-		wait(0.5)
-	end
 	
-	local function reach()
-	
-		local tool = game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Knife]')
-	
-		local a = Instance.new("SelectionBox", tool.Handle)
-		a.Adornee = tool.Handle
-		tool.Handle.Size = Vector3.new(50, 50, 50)
-		tool.Handle.Transparency = 1
-		tool.GripPos = Vector3.new(0, 0, 0)
-	
-	end
-	
-	tooluse()
-	reach()
-	
-	if target and bring then
-		if game.Players[target].Character.BodyEffects['K.O'].Value ~= true then
-			repeat wait()
-				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame + game:GetService("Players")[target].Character.UpperTorso.CFrame.LookVector * -3
-				tooluse()
-				game:GetService'VirtualUser':CaptureController()
-				game:GetService'VirtualUser':Button1Down(Vector2.new(9e9, 9e9))
-			until game:GetService("Players")[target].Character.BodyEffects["K.O"].Value == true
-	
-			repeat wait()
-				grab()
-			until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
-	
-			wait(0.6)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-		else
-			repeat wait()
-				grab()
-			until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
-			wait(0.6)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+		local function tooluse()
+			pcall(function()
+				game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]').Parent = game:GetService("Players").LocalPlayer.Character
+			end)    
 		end
+	
+		local function grab()
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame
+			game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", true)
+			wait(0.5)
+		end
+	
+		local function reach()
+	
+			local tool = game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
+	
+			local a = Instance.new("SelectionBox", tool.Handle)
+			a.Adornee = tool.Handle
+			tool.Handle.Size = Vector3.new(50, 50, 50)
+			tool.Handle.Transparency = 1
+			tool.GripPos = Vector3.new(0, 0, 0)
+	
+		end
+	
+		tooluse()
+		reach()
+	
+		if target and bring then
+			if game.Players[target].Character.BodyEffects['K.O'].Value ~= true then
+				repeat wait()
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame + game:GetService("Players")[target].Character.UpperTorso.CFrame.LookVector * -3
+					tooluse()
+					game:GetService'VirtualUser':CaptureController()
+					game:GetService'VirtualUser':Button1Down(Vector2.new(9e9, 9e9))
+				until game:GetService("Players")[target].Character.BodyEffects["K.O"].Value == true
+	
+				repeat wait()
+					grab()
+				until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
+	
+				wait(0.6)
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+			else
+				repeat wait()
+					grab()
+				until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
+				wait(0.6)
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+			end
 		end
 	end)
 end
-coroutine.wrap(LMTF_fake_script)()
-local function DNJDBH_fake_script() -- Goto.goto script 
+coroutine.wrap(LGZOBN_fake_script)()
+local function QNAG_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
@@ -290,14 +290,14 @@ local function DNJDBH_fake_script() -- Goto.goto script
 		game.Players[me].Character.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(DNJDBH_fake_script)()
-local function SVEP_fake_script() -- Frame.drag 
+coroutine.wrap(QNAG_fake_script)()
+local function LRSQ_fake_script() -- Frame.drag 
 	local script = Instance.new('Script', Frame)
 
 	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
 end
-coroutine.wrap(SVEP_fake_script)()
-local function EDRWR_fake_script() -- Frame.currency update 
+coroutine.wrap(LRSQ_fake_script)()
+local function FLFGT_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -315,8 +315,8 @@ local function EDRWR_fake_script() -- Frame.currency update
 	
 	
 end
-coroutine.wrap(EDRWR_fake_script)()
-local function QVCRW_fake_script() -- Reset.Reset 
+coroutine.wrap(FLFGT_fake_script)()
+local function EPZRTI_fake_script() -- Reset.Reset 
 	local script = Instance.new('Script', Reset)
 
 	local button = script.Parent
@@ -331,8 +331,8 @@ local function QVCRW_fake_script() -- Reset.Reset
 	end)
 	
 end
-coroutine.wrap(QVCRW_fake_script)()
-local function ARZM_fake_script() -- view.view 
+coroutine.wrap(EPZRTI_fake_script)()
+local function JFTWP_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -341,9 +341,12 @@ local function ARZM_fake_script() -- view.view
 		
 		if view.Text == 'View' then
 			view.Text = 'Un-view'
-			repeat wait()
+			repeat wait() 
+				pcall(function()
 				game.Workspace.Camera.CameraSubject = game.Players[target].Character.Humanoid
+				end)
 			until view.Text == 'View'
+			
 			game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
 		else
 			view.Text = 'View'
@@ -354,8 +357,8 @@ local function ARZM_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(ARZM_fake_script)()
-local function ZFEXMHQ_fake_script() -- targetgui.name shrink 
+coroutine.wrap(JFTWP_fake_script)()
+local function PWOQKX_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -374,8 +377,8 @@ local function ZFEXMHQ_fake_script() -- targetgui.name shrink
 	ShrinkName()
 	
 end
-coroutine.wrap(ZFEXMHQ_fake_script)()
-local function GKRNJF_fake_script() -- targetgui.toggle gui 
+coroutine.wrap(PWOQKX_fake_script)()
+local function LZQBX_fake_script() -- targetgui.toggle gui 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
@@ -389,8 +392,8 @@ local function GKRNJF_fake_script() -- targetgui.toggle gui
 		end
 	end)
 end
-coroutine.wrap(GKRNJF_fake_script)()
-local function WDWBQ_fake_script() -- targetgui.anticheat 
+coroutine.wrap(LZQBX_fake_script)()
+local function FSKP_fake_script() -- targetgui.anticheat 
 	local script = Instance.new('Script', targetgui)
 
 	assert(getrawmetatable)
@@ -428,4 +431,4 @@ local function WDWBQ_fake_script() -- targetgui.anticheat
 			end)
 	
 end
-coroutine.wrap(WDWBQ_fake_script)()
+coroutine.wrap(FSKP_fake_script)()
