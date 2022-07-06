@@ -1,0 +1,685 @@
+-- NEW AND IMPROVED!!
+
+
+getgenv().Seller = 'blitzyontop'
+
+-- 32 ALTS MAX
+local ALTS = {
+	'gagacheer1',
+	'dopeminesgood',
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
+repeat wait() until game:GetService("Players").LocalPlayer.Character
+repeat wait() until game:GetService("Players").LocalPlayer.Backpack.Wallet
+repeat wait() until game:IsLoaded()
+wait(4)
+
+
+-- REPEAT WAIT
+
+
+-- ANTI AFK
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	wait(1)
+	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+-- ANTI AFK
+
+-- DARK IDLE
+
+local nofocus = Instance.new("ScreenGui")
+local xdlolframe = Instance.new("Frame")
+local xdlol = Instance.new("TextLabel")
+local xdlolcred = Instance.new("TextLabel")
+
+nofocus.Name = "nofocus"
+nofocus.Parent = game.CoreGui
+nofocus.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+xdlolframe.Name = "xdlolframe"
+xdlolframe.Parent = nofocus
+xdlolframe.BackgroundColor3 = Color3.fromRGB(41, 41, 41)
+xdlolframe.Size = UDim2.new(0, 5000, 0, 5000)
+xdlolframe.Visible = false
+xdlolframe.ZIndex = 10
+
+-- DARK IDLE
+
+
+
+
+
+
+-- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS -- FUNCTIONS
+
+local owner = Seller
+
+
+
+
+
+
+
+
+
+local plr = game:GetService("Players")[owner]
+local me = game:GetService("Players").LocalPlayer.Name
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local LocalCharacter = LocalPlayer.Character
+local Event = game:GetService("ReplicatedStorage").MainEvent
+local dropping = false
+local nostuck = math.random(-8, 8)
+local char = game:GetService("Players").LocalPlayer.Character
+
+
+-- NOTIFICATION
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size420x420
+
+local function noti(textn)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Oten Control"; 
+		Text = textn;
+		Icon = game:GetService("Players"):GetUserThumbnailAsync(127511899, thumbType, thumbSize);
+		Duration = 5;
+	})
+end
+-- NOTIFICATION
+
+
+
+
+-- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- -- FUNCS -- 
+
+
+local function nolag()
+
+
+	local UserInputService = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
+
+	local WindowFocusReleasedFunction = function()
+		RunService:Set3dRenderingEnabled(false)
+		xdlolframe.Visible = true
+		setfpscap(15)
+		return
+	end
+
+	local WindowFocusedFunction = function()
+		RunService:Set3dRenderingEnabled(true)
+		xdlolframe.Visible = false
+		setfpscap(100)
+		return
+	end
+
+	local Initialize = function()
+		UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
+		UserInputService.WindowFocused:Connect(WindowFocusedFunction)
+		return
+	end
+	RunService:Set3dRenderingEnabled(false)
+	xdlolframe.Visible = true
+	setfpscap(15)
+	Initialize()
+
+	--FPS BOOST
+
+	for _,v in pairs(workspace:GetDescendants()) do
+		if v.ClassName == "Part"
+			or v.ClassName == "SpawnLocation"
+			or v.ClassName == "WedgePart"
+			or v.ClassName == "Terrain"
+			or v.ClassName == "MeshPart" then
+			v.Material = "Plastic"
+		end
+	end
+
+end
+
+
+
+
+
+local function CashDestroy()
+	for _, c in pairs(workspace.Ignored.Drop:GetDescendants()) do
+		if c.Name == "MoneyDrop" and BrickColor == "Bright green" then
+			c:Destroy()
+		end
+	end
+end
+
+local function mute()
+	for _, sound in pairs(game:GetService("Workspace"):GetDescendants()) do
+		if sound.ClassName == "Sound" and sound.Name ~= 'oten' then
+			sound.Volume = 0
+		end
+	end
+
+	for _, sound2 in pairs(game:GetService("Players"):GetDescendants()) do
+		if sound2.ClassName == "Sound" then
+			sound2.Volume = 0
+		end
+	end
+end
+
+
+
+-- CRASHER
+
+local function lowcrasher()
+
+
+	for _,v in pairs(workspace:GetDescendants()) do
+		if v.ClassName == "Part"
+			or v.ClassName == "SpawnLocation"
+			or v.ClassName == "WedgePart"
+			or v.ClassName == "Terrain"
+			or v.ClassName == "MeshPart" then
+			v.BrickColor = BrickColor.new(155, 155, 155)
+			v.Material = "Plastic"
+		end
+	end
+
+	for _,v in pairs(workspace:GetDescendants()) do
+		if v.ClassName == "Decal"
+			or v.ClassName == "Texture" then
+			v:Destroy()
+		end
+	end --GRAPHIC SETTINGS
+
+
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
+end
+
+-- CRASHER
+
+
+
+
+
+-- ALT AND MAIN CONTROLS
+
+local function droploop()
+	local droploop 
+	droploop = game:GetService("RunService").RenderStepped:Connect(function()
+
+		Event:FireServer("DropMoney", "10000")
+
+		if dropping == false then
+			droploop:Disconnect()
+		end
+	end) --
+end
+
+
+
+local function reset()
+	for _, x in pairs(char:GetChildren()) do
+		if x:IsA("BasePart") or x:IsA('Accessory') then
+			x:Destroy()
+		end
+	end
+end
+
+
+
+local function wallet()
+	game:GetService("Players")[me].Backpack.Wallet.Parent = game:GetService("Players").LocalPlayer.Character
+end
+
+local function nowallet()
+	game:GetService("Players")[me].Character.Humanoid:UnequipTools()
+end
+
+
+
+local function block()
+	Event:FireServer("Block", true)
+end
+
+local function unblock()
+	Event:FireServer("Block", false)
+end
+
+
+
+local function bring()
+	if me ~= owner then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame + Vector3.new(0, 0, nostuck)
+	end
+end
+
+
+
+local function freeze()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+end
+
+local function unfreeze()
+	if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored == true then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	end
+
+	-- no fly anim
+
+	function stopTracks()
+		for _, v in next, game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):GetPlayingAnimationTracks() do
+			if (v.Animation.AnimationId:match("rbxassetid")) then
+				v:Stop()
+			end
+		end
+	end
+	stopTracks()
+end
+
+
+
+local function airlock()
+	local UniversalAnimation = Instance.new("Animation")
+	function loadAnimation(id)
+		if UniversalAnimation.AnimationId == id then
+			stopTracks()
+			UniversalAnimation.AnimationId = "1"
+		else
+			UniversalAnimation.AnimationId = id
+			local animationTrack = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):LoadAnimation(UniversalAnimation)
+			animationTrack:Play()
+		end
+	end
+
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 6, 0)
+	wait(0.1)
+	loadAnimation("rbxassetid://3541114300")
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+
+end
+
+
+
+-- PLACES
+
+
+
+local function club()
+	LocalCharacter.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Lemonade] - $3"].Head.CFrame + Vector3.new(0, -30, 99) + Vector3.new(0, 0, nostuck)
+end
+
+local function lava()
+	LocalCharacter.HumanoidRootPart.CFrame = CFrame.new(-870.70166015625, -38.399211883545, -591.33935546875) + Vector3.new(0, 0, nostuck)
+end
+local function court()
+	local nostuckc = math.random(-55, -42)
+	LocalCharacter.HumanoidRootPart.CFrame = game:GetService("Workspace").MAP.Map.Court.Jersey.Jersey.Wedge.CFrame + Vector3.new(-10, 0, nostuckc)
+end
+local function ufo()
+	local nostucku = math.random(-40, -10)
+	LocalCharacter.HumanoidRootPart.CFrame = game:GetService("Workspace").print.GreenSteps.Part.CFrame + Vector3.new(-10, 0, nostucku)
+end
+
+
+
+-- QUICK SETUPS
+
+
+local x = 0
+local function lavaset()
+	local LocalPlayer = game:GetService("Players").LocalPlayer
+	local LocalCharacter = LocalPlayer.Character
+	if LocalCharacter.HumanoidRootPart.Anchored == true then
+		LocalCharacter.HumanoidRootPart.Anchored = false
+	end
+	
+	local lavacframe = CFrame.new(-819.596985, -39.3992119, -550.234985, -0.999935448, 4.03660465e-08, -0.0113608185, 4.06878264e-08, 1, -2.80927317e-08, 0.0113608185, -2.85531669e-08, -0.999935448)
+	wait(0.2)
+	for i,v in pairs(ALTS) do
+		
+		if (LocalPlayer.Name == v and i == 1) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe
+		end 
+		if (LocalPlayer.Name == v and i == 2) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,10)
+		end 
+		if (LocalPlayer.Name == v and i == 3) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,20)
+		end 
+		if (LocalPlayer.Name == v and i == 4) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,30)
+		end
+		if (LocalPlayer.Name == v and i == 5) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,40)
+		end 
+		if (LocalPlayer.Name == v and i == 6) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,50)
+		end 
+		if (LocalPlayer.Name == v and i == 7) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,60)
+		end 
+		if (LocalPlayer.Name == v and i == 8) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(0,0,70)
+		end
+		
+		
+		if (LocalPlayer.Name == v and i == 9) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,0)
+		end 
+		if (LocalPlayer.Name == v and i == 10) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,10)
+		end 
+		if (LocalPlayer.Name == v and i == 11) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,20)
+		end 
+		if (LocalPlayer.Name == v and i == 12) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,30)
+		end
+		if (LocalPlayer.Name == v and i == 13) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,40)
+		end 
+		if (LocalPlayer.Name == v and i == 14) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,50)
+		end 
+		if (LocalPlayer.Name == v and i == 15) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,60)
+		end 
+		if (LocalPlayer.Name == v and i == 16) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(10,0,70)
+		end
+		
+		
+		if (LocalPlayer.Name == v and i == 17) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,0)
+		end 
+		if (LocalPlayer.Name == v and i == 18) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,10)
+		end 
+		if (LocalPlayer.Name == v and i == 19) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,20)
+		end 
+		if (LocalPlayer.Name == v and i == 20) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,30)
+		end
+		if (LocalPlayer.Name == v and i == 21) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,40)
+		end 
+		if (LocalPlayer.Name == v and i == 22) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,50)
+		end 
+		if (LocalPlayer.Name == v and i == 23) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,60)
+		end 
+		if (LocalPlayer.Name == v and i == 24) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(20,0,70)
+		end
+		
+
+		if (LocalPlayer.Name == v and i == 25) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,0)
+		end 
+		if (LocalPlayer.Name == v and i == 26) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,10)
+		end 
+		if (LocalPlayer.Name == v and i == 27) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,20)
+		end 
+		if (LocalPlayer.Name == v and i == 28) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,30)
+		end
+		if (LocalPlayer.Name == v and i == 29) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,40)
+		end 
+		if (LocalPlayer.Name == v and i == 30) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,50)
+		end 
+		if (LocalPlayer.Name == v and i == 31) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,60)
+		end 
+		if (LocalPlayer.Name == v and i == 32) then
+			LocalCharacter.HumanoidRootPart.CFrame = lavacframe * CFrame.new(30,0,70)
+		end
+		
+	end
+end
+
+
+
+
+-- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- -- MAIN -- 
+
+plr.Chatted:Connect(function(msg)
+	
+	
+	
+	if msg == ".commands" or msg == ".cmds" or msg == ".cmd" then
+		if owner == me then
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/commands'))()
+		end
+	end
+	if msg == ".check" then
+		noti(me.." is still active.")
+	end
+
+
+
+
+	if msg == ".drop" or msg == ".altsdrop" or msg == ".altdrop" then
+		if me ~= owner then
+			dropping = true
+			if dropping == true then
+				noti('Alts are now dropping!')
+				droploop()
+			end
+
+		end
+	end
+	if msg == ".drop2" or msg == ".dropall" then
+		dropping = true
+		if dropping == true then
+			droploop()
+		end
+	end
+	if msg == ".stop" or msg == ".nodrop" then
+		if dropping == true then
+			dropping = false
+			noti('Successfully stopped dropping.')
+		end
+	end
+	if msg == ".wallet" then
+		wallet()
+	end
+	if msg == ".unwallet" or msg == ".nowallet" then
+		nowallet()
+	end
+
+
+
+
+	if msg == ".nolag" or msg == ".lagfree" or msg == ".freelag" then
+		nolag()
+	end
+	if msg == ".mute" then
+		mute()
+		noti('Muted all sound coming from alt and seller.')
+	end
+	if msg == ".bring" or msg == ".bringalts" then
+		bring()
+	end
+	if msg == ".re" or msg == ".reset" then
+		if me ~= owner then
+			reset()	
+		end
+	end
+
+
+
+	if msg == ".destroy" then
+		if me ~= owner then
+			CashDestroy()
+			noti('Destroyed cash on alts.')
+		end
+	end
+
+
+
+	if msg == ".loopdestroy" or msg == ".destroy2" then
+		if me == owner then
+			noti('Destroying cash every 2 mins this function cannot be stopped.')
+		end
+
+		-- OWNER NOTIFICATION 
+
+		if me ~= owner then
+			CashDestroy()
+			while wait(120) do
+				CashDestroy()
+			end
+		end
+	end
+
+
+
+
+	if msg == ".airlock" or msg == ".float" then
+		if me ~= owner then
+			airlock()
+		end
+	end
+	if msg == ".airlockall" or msg == ".floatall" then
+		airlock()	
+	end
+
+
+
+	if msg == ".freeze" then
+		if me ~= owner then
+			freeze()	
+		end
+	end
+	if msg == ".unfreeze" or msg == ".nofreeze" or msg == ".unairlock"  or msg == ".noairlock" or msg == ".nofloat" or msg == ".unfloat" then
+		unfreeze()
+	end
+
+
+
+	if msg == ".block" then
+		if me ~= owner then
+			block()
+		end
+	end
+	if msg == ".block2" then
+		block()
+	end
+	if msg == ".noblock" or msg == ".unblock" then
+		unblock()
+	end
+
+
+
+	if msg == ".lava" or msg == ".base" or msg == ".admin" then
+		if me == owner then
+			lava()
+		end
+	end
+	if msg == ".club" then
+		if me == owner then
+			club()
+		end
+	end
+	if msg == ".court" then
+		if me == owner then
+			court()
+		end
+	end
+	if msg == ".ufo" or msg == ".alien" then
+		if me == owner then
+			ufo()
+		end
+	end
+
+
+
+
+	if msg == ".crash" or msg == ".lowcrash" or msg == ".crash2" then
+		noti('Swagcrash is now running thank you for using Oten Control ' ..me)
+		local function callback(Text)
+			if Text == "CRASH" then
+				lowcrasher()
+				while true do wait()
+					game:GetService("RunService"):Set3dRenderingEnabled(true)
+					xdlolframe.Visible = false
+					setfpscap(100)
+					dropping = false
+				end
+			elseif Text == ("DONT CRASH") then
+				noti('stopped the crash.')
+			end
+		end
+
+		local NotificationBindable = Instance.new("BindableFunction")
+		NotificationBindable.OnInvoke = callback
+		--
+		game.StarterGui:SetCore("SendNotification",  {
+			Title = "Title";
+			Text = "Description";
+			Icon = "";
+			Duration = 999999999;
+			Button1 = "CRASH";
+			Button2 = "DONT CRASH";
+			Callback = NotificationBindable;
+		})
+	end
+
+	-- QUICK SETUPS
+
+
+	if msg == ".setuplava" or msg == ".lavasetup" or msg == ".lavaset" or msg == ".setlava" then
+		if me ~= owner then
+			lavaset()
+		end
+	end
+
+
+	if msg == ".redeem" or msg == ".code" then
+		loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/code%20redeem")()
+	end
+
+	
+	
+end)
+
+
+if me == owner then
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/join-leave%20notifier")()
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/Blitzylol/blitzy-oten-control/main/Target")()
+	noti('Press Insert to Toggle Target-GUI')
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/GS21Official/Seller-Tools/main/DaHood%20Cash%20Counter")()-- JOIN / LEAVE NOTIFY
+end   
+-- NOTIFICATION / INTRO
+nolag()
+while true do wait(1)
+	pcall(function()
+		game:GetService('Players')[owner].Character:FindFirstChild("Humanoid").DisplayName = '[👑] ' ..plr.DisplayName
+	end)
+end
+
