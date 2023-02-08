@@ -1,5 +1,6 @@
 codes = {
-    'HappyNewYear2023',
+    'militarybase',
+    'secretcodeinmain'
 }
 
 for i,v in ipairs(codes) do
