@@ -1,7 +1,4 @@
--- 2/8/2023
-
-
-
+-- 2/9/2023
 
 local targetgui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -11,6 +8,7 @@ local player = Instance.new("TextBox")
 local otencontrol = Instance.new("TextLabel")
 local Reset = Instance.new("TextButton")
 local view = Instance.new("TextButton")
+local LastPos = Instance.new("TextButton")
 
 --Properties:
 
@@ -19,6 +17,7 @@ targetgui.Parent = game.CoreGui
 targetgui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = targetgui
+Frame.Active = true
 Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.00670141075, 0, 0.446625769, 0)
@@ -30,8 +29,8 @@ currency.BackgroundColor3 = Color3.fromRGB(95, 255, 87)
 currency.BackgroundTransparency = 1.000
 currency.Position = UDim2.new(0.0599999987, 0, 0, 0)
 currency.Size = UDim2.new(0, 176, 0, 29)
-currency.Font = Enum.Font.GothamMedium
-currency.Text = "$ NIL"
+currency.Font = Enum.Font.GothamBold
+currency.Text = "$"
 currency.TextColor3 = Color3.fromRGB(120, 236, 111)
 currency.TextSize = 14.000
 
@@ -39,7 +38,7 @@ Goto.Name = "Goto"
 Goto.Parent = Frame
 Goto.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 Goto.BorderSizePixel = 0
-Goto.Position = UDim2.new(0.0599999987, 0, 0.612476051, 0)
+Goto.Position = UDim2.new(0.0599999987, 0, 0.607701361, 0)
 Goto.Size = UDim2.new(0, 176, 0, 18)
 Goto.Font = Enum.Font.Ubuntu
 Goto.Text = "Goto"
@@ -73,7 +72,7 @@ Reset.Name = "Reset"
 Reset.Parent = Frame
 Reset.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 Reset.BorderSizePixel = 0
-Reset.Position = UDim2.new(0.0599999987, 0, 0.488717437, 0)
+Reset.Position = UDim2.new(0.0599999987, 0, 0.481199294, 0)
 Reset.Size = UDim2.new(0, 176, 0, 18)
 Reset.Font = Enum.Font.Ubuntu
 Reset.Text = "Reset"
@@ -84,33 +83,39 @@ view.Name = "view"
 view.Parent = Frame
 view.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 view.BorderSizePixel = 0
-view.Position = UDim2.new(0.0599999987, 0, 0.36519587, 0)
+view.Position = UDim2.new(0.0599999987, 0, 0.354939461, 0)
 view.Size = UDim2.new(0, 176, 0, 18)
 view.Font = Enum.Font.Ubuntu
 view.Text = "View"
 view.TextColor3 = Color3.fromRGB(255, 255, 255)
 view.TextSize = 14.000
 
+LastPos.Name = "LastPos"
+LastPos.Parent = Frame
+LastPos.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+LastPos.BorderSizePixel = 0
+LastPos.Position = UDim2.new(0.0599999987, 0, 0.733506739, 0)
+LastPos.Size = UDim2.new(0, 176, 0, 18)
+LastPos.Font = Enum.Font.Ubuntu
+LastPos.Text = "Last Position"
+LastPos.TextColor3 = Color3.fromRGB(255, 255, 255)
+LastPos.TextSize = 14.000
+
 -- Scripts:
 
-local function CEUSJC_fake_script() -- Goto.goto script 
+local function NAUOM_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
 	button.MouseButton1Click:Connect(function()
 		local LocalPlayer = game:GetService("Players").LocalPlayer
 		local LocalCharacter = LocalPlayer.Character
+		local lastpos = LocalCharacter.HumanoidRootPart.CFrame task.wait()
 		LocalCharacter.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(CEUSJC_fake_script)()
-local function AUJO_fake_script() -- Frame.drag 
-	local script = Instance.new('Script', Frame)
-
-	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
-end
-coroutine.wrap(AUJO_fake_script)()
-local function WHXFNI_fake_script() -- Frame.currency update 
+coroutine.wrap(NAUOM_fake_script)()
+local function AQVVYYU_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -128,8 +133,8 @@ local function WHXFNI_fake_script() -- Frame.currency update
 	
 	
 end
-coroutine.wrap(WHXFNI_fake_script)()
-local function EMULFYJ_fake_script() -- Reset.Reset 
+coroutine.wrap(AQVVYYU_fake_script)()
+local function OZVKZML_fake_script() -- Reset.Reset 
 	local script = Instance.new('Script', Reset)
 
 	local button = script.Parent
@@ -144,8 +149,8 @@ local function EMULFYJ_fake_script() -- Reset.Reset
 	end)
 	
 end
-coroutine.wrap(EMULFYJ_fake_script)()
-local function YCTD_fake_script() -- view.view 
+coroutine.wrap(OZVKZML_fake_script)()
+local function GNVU_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -156,7 +161,7 @@ local function YCTD_fake_script() -- view.view
 			view.Text = 'Un-view'
 			repeat wait() 
 				pcall(function()
-				game.Workspace.Camera.CameraSubject = game.Players[target].Character.Humanoid
+					game.Workspace.Camera.CameraSubject = game.Players[target].Character.Humanoid
 				end)
 			until view.Text == 'View'
 			
@@ -170,8 +175,19 @@ local function YCTD_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(YCTD_fake_script)()
-local function AFYQAK_fake_script() -- targetgui.name shrink 
+coroutine.wrap(GNVU_fake_script)()
+local function CKMW_fake_script() -- LastPos.Lastpos script 
+	local script = Instance.new('Script', LastPos)
+
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
+		local LocalPlayer = game:GetService("Players").LocalPlayer
+		local LocalCharacter = LocalPlayer.Character
+		LocalCharacter.HumanoidRootPart.CFrame = CFrame.new(LastPos)
+	end)
+end
+coroutine.wrap(CKMW_fake_script)()
+local function XHNLWY_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -190,8 +206,8 @@ local function AFYQAK_fake_script() -- targetgui.name shrink
 	ShrinkName()
 	
 end
-coroutine.wrap(AFYQAK_fake_script)()
-local function LHFAB_fake_script() -- targetgui.toggle gui 
+coroutine.wrap(XHNLWY_fake_script)()
+local function XJPP_fake_script() -- targetgui.toggle gui 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
@@ -205,8 +221,8 @@ local function LHFAB_fake_script() -- targetgui.toggle gui
 		end
 	end)
 end
-coroutine.wrap(LHFAB_fake_script)()
-local function MHXFWNM_fake_script() -- targetgui.anticheat 
+coroutine.wrap(XJPP_fake_script)()
+local function WUPAX_fake_script() -- targetgui.anticheat 
 	local script = Instance.new('Script', targetgui)
 
 	assert(getrawmetatable)
@@ -244,4 +260,10 @@ local function MHXFWNM_fake_script() -- targetgui.anticheat
 			end)
 	
 end
-coroutine.wrap(MHXFWNM_fake_script)()
+coroutine.wrap(WUPAX_fake_script)()
+local function VCYOQID_fake_script() -- targetgui.drag 
+	local script = Instance.new('Script', targetgui)
+
+	script.Parent.Frame.Draggable = true
+end
+coroutine.wrap(VCYOQID_fake_script)()
