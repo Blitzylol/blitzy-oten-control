@@ -1,10 +1,11 @@
--- IMPROVED
+-- 2/8/2023
+
+
+
 
 local targetgui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local currency = Instance.new("TextLabel")
-local atk = Instance.new("TextButton")
-local bring = Instance.new("TextButton")
 local Goto = Instance.new("TextButton")
 local player = Instance.new("TextBox")
 local otencontrol = Instance.new("TextLabel")
@@ -20,8 +21,8 @@ targetgui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Frame.Parent = targetgui
 Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.00670140982, 0, 0.446625769, 0)
-Frame.Size = UDim2.new(0, 200, 0, 346)
+Frame.Position = UDim2.new(0.00670141075, 0, 0.446625769, 0)
+Frame.Size = UDim2.new(0, 200, 0, 195)
 
 currency.Name = "currency"
 currency.Parent = Frame
@@ -34,33 +35,11 @@ currency.Text = "$ NIL"
 currency.TextColor3 = Color3.fromRGB(120, 236, 111)
 currency.TextSize = 14.000
 
-atk.Name = "atk"
-atk.Parent = Frame
-atk.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
-atk.BorderSizePixel = 0
-atk.Position = UDim2.new(0.0599999987, 0, 0.361179233, 0)
-atk.Size = UDim2.new(0, 176, 0, 18)
-atk.Font = Enum.Font.Ubuntu
-atk.Text = "Autokill"
-atk.TextColor3 = Color3.fromRGB(255, 255, 255)
-atk.TextSize = 14.000
-
-bring.Name = "bring"
-bring.Parent = Frame
-bring.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
-bring.BorderSizePixel = 0
-bring.Position = UDim2.new(0.0599999987, 0, 0.286034703, 0)
-bring.Size = UDim2.new(0, 176, 0, 18)
-bring.Font = Enum.Font.Ubuntu
-bring.Text = "Bring"
-bring.TextColor3 = Color3.fromRGB(255, 255, 255)
-bring.TextSize = 14.000
-
 Goto.Name = "Goto"
 Goto.Parent = Frame
 Goto.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 Goto.BorderSizePixel = 0
-Goto.Position = UDim2.new(0.0599999987, 0, 0.208000004, 0)
+Goto.Position = UDim2.new(0.0599999987, 0, 0.612476051, 0)
 Goto.Size = UDim2.new(0, 176, 0, 18)
 Goto.Font = Enum.Font.Ubuntu
 Goto.Text = "Goto"
@@ -71,7 +50,7 @@ player.Name = "player"
 player.Parent = Frame
 player.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 player.BorderSizePixel = 0
-player.Position = UDim2.new(0.0599999987, 0, 0.0838150308, 0)
+player.Position = UDim2.new(0.0599999987, 0, 0.140225291, 0)
 player.Size = UDim2.new(0, 176, 0, 34)
 player.Font = Enum.Font.SourceSans
 player.PlaceholderText = "[ PLAYER NAME ]"
@@ -83,7 +62,7 @@ otencontrol.Name = "otencontrol"
 otencontrol.Parent = Frame
 otencontrol.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 otencontrol.BackgroundTransparency = 1.000
-otencontrol.Position = UDim2.new(0, 0, 0.933526039, 0)
+otencontrol.Position = UDim2.new(0, 0, 0.877115786, 0)
 otencontrol.Size = UDim2.new(0, 200, 0, 23)
 otencontrol.Font = Enum.Font.SourceSansBold
 otencontrol.Text = "OTEN CONTROL"
@@ -94,7 +73,7 @@ Reset.Name = "Reset"
 Reset.Parent = Frame
 Reset.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 Reset.BorderSizePixel = 0
-Reset.Position = UDim2.new(0.0599999987, 0, 0.514358461, 0)
+Reset.Position = UDim2.new(0.0599999987, 0, 0.488717437, 0)
 Reset.Size = UDim2.new(0, 176, 0, 18)
 Reset.Font = Enum.Font.Ubuntu
 Reset.Text = "Reset"
@@ -105,7 +84,7 @@ view.Name = "view"
 view.Parent = Frame
 view.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 view.BorderSizePixel = 0
-view.Position = UDim2.new(0.0599999987, 0, 0.439213932, 0)
+view.Position = UDim2.new(0.0599999987, 0, 0.36519587, 0)
 view.Size = UDim2.new(0, 176, 0, 18)
 view.Font = Enum.Font.Ubuntu
 view.Text = "View"
@@ -114,179 +93,7 @@ view.TextSize = 14.000
 
 -- Scripts:
 
-local function PZRR_fake_script() -- atk.autokill 
-	local script = Instance.new('Script', atk)
-
-	local button = script.Parent
-	button.MouseButton1Click:Connect(function()
-	
-		local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-		local antifall = Instance.new("BodyVelocity", game.Players.LocalPlayer.Character.HumanoidRootPart)
-		antifall.Velocity = Vector3.new(0,0,0)
-	
-		if atk.Text == 'Autokill' then
-			atk.Text = 'Stop Autokill'
-	
-			local char = game:GetService("Players").LocalPlayer.Character
-			local Event = game:GetService("ReplicatedStorage").MainEvent
-	
-	
-			local function tooluse()
-				pcall(function()
-					game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]').Parent = game:GetService("Players").LocalPlayer.Character
-				end)    
-			end
-	
-			local function noclip()
-				for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-					if v:IsA("BasePart") and v.CanCollide == true then
-						v.CanCollide = false
-					end
-				end
-			end
-	
-			local function reach()
-				local tool = game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
-	
-				local a = Instance.new("SelectionBox", tool.Handle)
-				a.Adornee = tool.Handle
-				tool.Handle.Size = Vector3.new(50, 50, 50)
-				tool.Handle.Transparency = 1
-				tool.GripPos = Vector3.new(0, 0, 0)
-			end
-	
-			pcall(function()
-				if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') and not game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]') then
-					repeat wait()
-						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].Head.CFrame
-						wait(0.2)
-						fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].ClickDetector)
-					until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
-				end
-			end)
-	
-			tooluse()
-			reach()
-			
-	
-			game:GetService('RunService'):BindToRenderStep("autokill", 0 , function()
-	
-				if target then 
-					pcall(
-						function()
-							if game.Players[target].Character.BodyEffects['K.O'].Value ~= true then
-								noclip()
-								reach()
-								tooluse()
-								
-								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame * CFrame.new(0,-10,0)
-								game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]'):Activate()
-							elseif game.Players[target].Character.BodyEffects['Dead'].Value ~= true then
-								game:GetService("Players").LocalPlayer.Character:MoveTo(game:GetService("Players")[target].Character.UpperTorso.Position)
-								game:GetService("ReplicatedStorage").MainEvent:FireServer('Stomp')
-							else
-								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-267.154419, 93.0478668, -657.472717, -0.884925306, -7.19353133e-10, 0.465732992, 2.01643235e-09, 1, 5.37592371e-09, -0.465732992, 5.69641001e-09, -0.884925306)
-								game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]'):Activate()
-							end
-						end)
-				end
-	
-			end)
-	
-		else
-			atk.Text = 'Autokill'
-			game:GetService('RunService'):UnbindFromRenderStep("autokill")
-			antifall:Destroy()
-			wait(0.4)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos * CFrame.new(0,10,0) wait()
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos * CFrame.new(0,10,0) wait()
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos * CFrame.new(0,10,0) wait()
-	
-		end
-		
-	end)
-	
-		
-end
-coroutine.wrap(PZRR_fake_script)()
-local function GZVQ_fake_script() -- bring.bring script 
-	local script = Instance.new('Script', bring)
-
-	local button = script.Parent
-	button.MouseButton1Click:Connect(function()
-		local me = game:GetService("Players").LocalPlayer.Name
-		local char = game:GetService("Players").LocalPlayer.Character
-		local Event = game:GetService("ReplicatedStorage").MainEvent
-	
-		local bring = true
-	
-		local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-		--
-	
-		pcall(function()
-			if not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') and not game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]') then
-				repeat wait()
-					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].Head.CFrame
-					wait(0.2)
-					fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Bat] - $250"].ClickDetector)
-				until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]') or game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
-			end
-		end)
-	
-	
-		local function tooluse()
-			pcall(function()
-				game:GetService("Players").LocalPlayer.Backpack:FindFirstChild('[Bat]').Parent = game:GetService("Players").LocalPlayer.Character
-			end)    
-		end
-	
-		local function grab()
-			game:GetService("Players").LocalPlayer.Character:MoveTo(game:GetService("Players")[target].Character.LowerTorso.Position)
-			game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", true)
-			wait(0.4)
-		end
-	
-		local function reach()
-	
-			local tool = game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]')
-	
-			local a = Instance.new("SelectionBox", tool.Handle)
-			a.Adornee = tool.Handle
-			tool.Handle.Size = Vector3.new(50, 50, 50)
-			tool.Handle.Transparency = 1
-			tool.GripPos = Vector3.new(0, 0, 0)
-	
-		end
-	
-		tooluse()
-		reach()
-	
-		if target and bring then
-			if game.Players[target].Character.BodyEffects['K.O'].Value ~= true then
-				repeat wait()
-					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[target].Character.UpperTorso.CFrame + game:GetService("Players")[target].Character.UpperTorso.CFrame.LookVector * -3
-					tooluse()
-					game:GetService("Players").LocalPlayer.Character:FindFirstChild('[Bat]'):Activate()
-				until game:GetService("Players")[target].Character.BodyEffects["K.O"].Value == true
-				
-				repeat wait()
-					grab()
-				until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")  
-	
-				wait(0.2)
-				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-			else
-				repeat wait()
-					grab()
-				until game:GetService("Players")[target].Character:FindFirstChild("GRABBING_CONSTRAINT")
-				wait(0.2)
-				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-			end
-		end
-	end)
-end
-coroutine.wrap(GZVQ_fake_script)()
-local function EKQRK_fake_script() -- Goto.goto script 
+local function CEUSJC_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
@@ -296,14 +103,14 @@ local function EKQRK_fake_script() -- Goto.goto script
 		LocalCharacter.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(EKQRK_fake_script)()
-local function UJVIXHC_fake_script() -- Frame.drag 
+coroutine.wrap(CEUSJC_fake_script)()
+local function AUJO_fake_script() -- Frame.drag 
 	local script = Instance.new('Script', Frame)
 
 	local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
 end
-coroutine.wrap(UJVIXHC_fake_script)()
-local function LMOXL_fake_script() -- Frame.currency update 
+coroutine.wrap(AUJO_fake_script)()
+local function WHXFNI_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -321,8 +128,8 @@ local function LMOXL_fake_script() -- Frame.currency update
 	
 	
 end
-coroutine.wrap(LMOXL_fake_script)()
-local function HISXZI_fake_script() -- Reset.Reset 
+coroutine.wrap(WHXFNI_fake_script)()
+local function EMULFYJ_fake_script() -- Reset.Reset 
 	local script = Instance.new('Script', Reset)
 
 	local button = script.Parent
@@ -337,8 +144,8 @@ local function HISXZI_fake_script() -- Reset.Reset
 	end)
 	
 end
-coroutine.wrap(HISXZI_fake_script)()
-local function SQLIL_fake_script() -- view.view 
+coroutine.wrap(EMULFYJ_fake_script)()
+local function YCTD_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -363,8 +170,8 @@ local function SQLIL_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(SQLIL_fake_script)()
-local function ICHX_fake_script() -- targetgui.name shrink 
+coroutine.wrap(YCTD_fake_script)()
+local function AFYQAK_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -383,8 +190,8 @@ local function ICHX_fake_script() -- targetgui.name shrink
 	ShrinkName()
 	
 end
-coroutine.wrap(ICHX_fake_script)()
-local function AWTJG_fake_script() -- targetgui.toggle gui 
+coroutine.wrap(AFYQAK_fake_script)()
+local function LHFAB_fake_script() -- targetgui.toggle gui 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
@@ -398,8 +205,8 @@ local function AWTJG_fake_script() -- targetgui.toggle gui
 		end
 	end)
 end
-coroutine.wrap(AWTJG_fake_script)()
-local function JMXVXJJ_fake_script() -- targetgui.anticheat 
+coroutine.wrap(LHFAB_fake_script)()
+local function MHXFWNM_fake_script() -- targetgui.anticheat 
 	local script = Instance.new('Script', targetgui)
 
 	assert(getrawmetatable)
@@ -437,4 +244,4 @@ local function JMXVXJJ_fake_script() -- targetgui.anticheat
 			end)
 	
 end
-coroutine.wrap(JMXVXJJ_fake_script)()
+coroutine.wrap(MHXFWNM_fake_script)()
