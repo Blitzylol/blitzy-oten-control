@@ -110,7 +110,7 @@ local function ZLLLOG_fake_script() -- Goto.goto script
 	button.MouseButton1Click:Connect(function()
 		local LocalPlayer = game:GetService("Players").LocalPlayer
 		local LocalCharacter = LocalPlayer.Character
-		local lastpos = LocalCharacter.HumanoidRootPart.CFrame task.wait()
+		local getgenv().lastpos = LocalCharacter.HumanoidRootPart.CFrame task.wait()
 		LocalCharacter.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
 	end)
 end
@@ -183,7 +183,7 @@ local function EQRRQ_fake_script() -- LastPos.Lastpos script
 	button.MouseButton1Click:Connect(function()
 		local LocalPlayer = game:GetService("Players").LocalPlayer
 		local LocalCharacter = LocalPlayer.Character
-		LocalCharacter.HumanoidRootPart.CFrame = lastpos
+		LocalCharacter.HumanoidRootPart.CFrame = getgenv().lastpos
 	end)
 end
 coroutine.wrap(EQRRQ_fake_script)()
