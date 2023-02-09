@@ -9,6 +9,7 @@ local otencontrol = Instance.new("TextLabel")
 local Reset = Instance.new("TextButton")
 local view = Instance.new("TextButton")
 local LastPos = Instance.new("TextButton")
+local lastpos = nil
 
 --Properties:
 
