@@ -103,7 +103,7 @@ LastPos.TextSize = 14.000
 
 -- Scripts:
 
-local function NAUOM_fake_script() -- Goto.goto script 
+local function USLD_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
@@ -114,8 +114,8 @@ local function NAUOM_fake_script() -- Goto.goto script
 		LocalCharacter.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(NAUOM_fake_script)()
-local function AQVVYYU_fake_script() -- Frame.currency update 
+coroutine.wrap(USLD_fake_script)()
+local function FJXYFS_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -133,8 +133,8 @@ local function AQVVYYU_fake_script() -- Frame.currency update
 	
 	
 end
-coroutine.wrap(AQVVYYU_fake_script)()
-local function OZVKZML_fake_script() -- Reset.Reset 
+coroutine.wrap(FJXYFS_fake_script)()
+local function OIIDUWI_fake_script() -- Reset.Reset 
 	local script = Instance.new('Script', Reset)
 
 	local button = script.Parent
@@ -149,8 +149,8 @@ local function OZVKZML_fake_script() -- Reset.Reset
 	end)
 	
 end
-coroutine.wrap(OZVKZML_fake_script)()
-local function GNVU_fake_script() -- view.view 
+coroutine.wrap(OIIDUWI_fake_script)()
+local function BDGU_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -175,19 +175,19 @@ local function GNVU_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(GNVU_fake_script)()
-local function CKMW_fake_script() -- LastPos.Lastpos script 
+coroutine.wrap(BDGU_fake_script)()
+local function FLGV_fake_script() -- LastPos.Lastpos script 
 	local script = Instance.new('Script', LastPos)
 
 	local button = script.Parent
 	button.MouseButton1Click:Connect(function()
 		local LocalPlayer = game:GetService("Players").LocalPlayer
 		local LocalCharacter = LocalPlayer.Character
-		LocalCharacter.HumanoidRootPart.CFrame = CFrame.new(LastPos)
+		LocalCharacter.HumanoidRootPart.CFrame = LastPos
 	end)
 end
-coroutine.wrap(CKMW_fake_script)()
-local function XHNLWY_fake_script() -- targetgui.name shrink 
+coroutine.wrap(FLGV_fake_script)()
+local function ZJKTTQB_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -206,8 +206,8 @@ local function XHNLWY_fake_script() -- targetgui.name shrink
 	ShrinkName()
 	
 end
-coroutine.wrap(XHNLWY_fake_script)()
-local function XJPP_fake_script() -- targetgui.toggle gui 
+coroutine.wrap(ZJKTTQB_fake_script)()
+local function ZAHU_fake_script() -- targetgui.toggle gui 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
@@ -221,8 +221,8 @@ local function XJPP_fake_script() -- targetgui.toggle gui
 		end
 	end)
 end
-coroutine.wrap(XJPP_fake_script)()
-local function WUPAX_fake_script() -- targetgui.anticheat 
+coroutine.wrap(ZAHU_fake_script)()
+local function ULSVFVN_fake_script() -- targetgui.anticheat 
 	local script = Instance.new('Script', targetgui)
 
 	assert(getrawmetatable)
@@ -260,10 +260,10 @@ local function WUPAX_fake_script() -- targetgui.anticheat
 			end)
 	
 end
-coroutine.wrap(WUPAX_fake_script)()
-local function VCYOQID_fake_script() -- targetgui.drag 
+coroutine.wrap(ULSVFVN_fake_script)()
+local function FGOEQY_fake_script() -- targetgui.drag 
 	local script = Instance.new('Script', targetgui)
 
 	script.Parent.Frame.Draggable = true
 end
-coroutine.wrap(VCYOQID_fake_script)()
+coroutine.wrap(FGOEQY_fake_script)()
