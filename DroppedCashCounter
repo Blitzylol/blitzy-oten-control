@@ -20,7 +20,7 @@ Drag.Active = true
 Drag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Drag.BackgroundTransparency = 1.000
 Drag.BorderSizePixel = 0
-Drag.Position = UDim2.new(0.0125823915, 0, 0.356971145, 0)
+Drag.Position = UDim2.new(0.013780714, 0, 0.301682681, 0)
 Drag.Size = UDim2.new(0, 178, 0, 74)
 
 Top.Name = "Top"
@@ -61,7 +61,7 @@ CashDropped_2.TextSize = 18.000
 
 -- Scripts:
 
-local function ZKYJ_fake_script() -- CashDropped_2.Update 
+local function IUFXYMH_fake_script() -- CashDropped_2.Update 
 	local script = Instance.new('Script', CashDropped_2)
 
 	local MoneyDrops = game:GetService("Workspace").Ignored.Drop
@@ -101,10 +101,10 @@ local function ZKYJ_fake_script() -- CashDropped_2.Update
 	end)
 	
 end
-coroutine.wrap(ZKYJ_fake_script)()
-local function IMIGGQC_fake_script() -- CashDropped.drag 
+coroutine.wrap(IUFXYMH_fake_script)()
+local function DDSN_fake_script() -- CashDropped.drag 
 	local script = Instance.new('Script', CashDropped)
 
 	script.Parent.Drag.Draggable = true
 end
-coroutine.wrap(IMIGGQC_fake_script)()
+coroutine.wrap(DDSN_fake_script)()
