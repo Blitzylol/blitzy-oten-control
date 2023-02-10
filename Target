@@ -215,7 +215,7 @@ local function CWLMRAJ_fake_script() -- Bring.Bring script
 		if not TargetCharacter:FindFirstChild('GRABBING_CONSTRAINT') and BodyEffects['K.O'].Value == true then -- GRAB FUNCTION
 	
 			spawn(function() -- GRAB
-				repeat wait(1);
+				repeat wait(2);
 					if not TargetCharacter:FindFirstChild('GRABBING_CONSTRAINT') then
 						Event:FireServer('Grabbing', false)
 					end
