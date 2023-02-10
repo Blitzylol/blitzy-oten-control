@@ -1,5 +1,6 @@
--- ADDED BRING / NEW LOADSTRING
 -- 2/10/2023
+-- removed random pic 
+-- forgot to add mousebuttonconnect on bring command
 
 local targetgui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -10,7 +11,6 @@ local otencontrol = Instance.new("TextLabel")
 local Reset = Instance.new("TextButton")
 local view = Instance.new("TextButton")
 local Bring = Instance.new("TextButton")
-local ImageLabel = Instance.new("ImageLabel")
 
 --Properties:
 
@@ -103,14 +103,9 @@ Bring.Text = "Bring"
 Bring.TextColor3 = Color3.fromRGB(255, 255, 255)
 Bring.TextSize = 14.000
 
-ImageLabel.Parent = targetgui
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.Size = UDim2.new(0, 100, 0, 100)
-ImageLabel.Image = "rbxassetid://11890741187"
-
 -- Scripts:
 
-local function PIUUN_fake_script() -- Goto.goto script 
+local function RUNGT_fake_script() -- Goto.goto script 
 	local script = Instance.new('Script', Goto)
 
 	local button = script.Parent
@@ -121,8 +116,8 @@ local function PIUUN_fake_script() -- Goto.goto script
 		LocalCharacter.HumanoidRootPart.CFrame = game.Players[target].Character.LowerTorso.CFrame
 	end)
 end
-coroutine.wrap(PIUUN_fake_script)()
-local function RTSZRFP_fake_script() -- Frame.currency update 
+coroutine.wrap(RUNGT_fake_script)()
+local function HTBNKS_fake_script() -- Frame.currency update 
 	local script = Instance.new('Script', Frame)
 
 	
@@ -140,8 +135,8 @@ local function RTSZRFP_fake_script() -- Frame.currency update
 	
 	
 end
-coroutine.wrap(RTSZRFP_fake_script)()
-local function IOWQFG_fake_script() -- Reset.Reset 
+coroutine.wrap(HTBNKS_fake_script)()
+local function PADVZ_fake_script() -- Reset.Reset 
 	local script = Instance.new('Script', Reset)
 
 	local button = script.Parent
@@ -163,8 +158,8 @@ local function IOWQFG_fake_script() -- Reset.Reset
 	end)
 	
 end
-coroutine.wrap(IOWQFG_fake_script)()
-local function XNMA_fake_script() -- view.view 
+coroutine.wrap(PADVZ_fake_script)()
+local function KSEYGR_fake_script() -- view.view 
 	local script = Instance.new('Script', view)
 
 	local button = script.Parent
@@ -189,10 +184,12 @@ local function XNMA_fake_script() -- view.view
 	end)
 		
 end
-coroutine.wrap(XNMA_fake_script)()
-local function ULVF_fake_script() -- Bring.Bring script 
+coroutine.wrap(KSEYGR_fake_script)()
+local function OLGHIJP_fake_script() -- Bring.Bring script 
 	local script = Instance.new('Script', Bring)
 
+	local button = script.Parent
+	button.MouseButton1Click:Connect(function()
 	local LocalPlayer = game:GetService("Players").LocalPlayer
 	local LocalCharacter = LocalPlayer.Character
 	local TargetCharacter = game.Players[target].Character
@@ -253,10 +250,10 @@ local function ULVF_fake_script() -- Bring.Bring script
 		LocalCharacter.HumanoidRootPart.CFrame = LastPosition
 	
 	end 
-	
+	end)
 end
-coroutine.wrap(ULVF_fake_script)()
-local function LNHMKY_fake_script() -- targetgui.name shrink 
+coroutine.wrap(OLGHIJP_fake_script)()
+local function YQXMY_fake_script() -- targetgui.name shrink 
 	local script = Instance.new('Script', targetgui)
 
 	local function ShrinkName()
@@ -275,8 +272,8 @@ local function LNHMKY_fake_script() -- targetgui.name shrink
 	ShrinkName()
 	
 end
-coroutine.wrap(LNHMKY_fake_script)()
-local function NHQKJ_fake_script() -- targetgui.toggle gui 
+coroutine.wrap(YQXMY_fake_script)()
+local function GLUVGS_fake_script() -- targetgui.toggle gui 
 	local script = Instance.new('Script', targetgui)
 
 	local ui = script.Parent.Frame
@@ -290,8 +287,8 @@ local function NHQKJ_fake_script() -- targetgui.toggle gui
 		end
 	end)
 end
-coroutine.wrap(NHQKJ_fake_script)()
-local function ABYUGX_fake_script() -- targetgui.anticheat 
+coroutine.wrap(GLUVGS_fake_script)()
+local function MUNNA_fake_script() -- targetgui.anticheat 
 	local script = Instance.new('Script', targetgui)
 
 	assert(getrawmetatable)
@@ -329,10 +326,10 @@ local function ABYUGX_fake_script() -- targetgui.anticheat
 			end)
 	
 end
-coroutine.wrap(ABYUGX_fake_script)()
-local function BETZNS_fake_script() -- targetgui.drag 
+coroutine.wrap(MUNNA_fake_script)()
+local function FWAUK_fake_script() -- targetgui.drag 
 	local script = Instance.new('Script', targetgui)
 
 	script.Parent.Frame.Draggable = true
 end
-coroutine.wrap(BETZNS_fake_script)()
+coroutine.wrap(FWAUK_fake_script)()
