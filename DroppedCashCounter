@@ -11,7 +11,7 @@ local CashDropped_2 = Instance.new("TextLabel")
 --Properties:
 
 CashDropped.Name = "CashDropped"
-CashDropped.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+CashDropped.Parent = game.CoreGui
 CashDropped.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Drag.Name = "Drag"
