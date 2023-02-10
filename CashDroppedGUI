@@ -1,0 +1,110 @@
+-- 2/10/2023
+-- changed position
+
+local CashDropped = Instance.new("ScreenGui")
+local Drag = Instance.new("Frame")
+local Top = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Bottom = Instance.new("Frame")
+local CashDropped_2 = Instance.new("TextLabel")
+
+--Properties:
+
+CashDropped.Name = "CashDropped"
+CashDropped.Parent = game.CoreGui
+CashDropped.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Drag.Name = "Drag"
+Drag.Parent = CashDropped
+Drag.Active = true
+Drag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Drag.BackgroundTransparency = 1.000
+Drag.BorderSizePixel = 0
+Drag.Position = UDim2.new(0.013780714, 0, 0.301682681, 0)
+Drag.Size = UDim2.new(0, 178, 0, 74)
+
+Top.Name = "Top"
+Top.Parent = Drag
+Top.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Top.BorderSizePixel = 0
+Top.Position = UDim2.new(0.035232693, 0, 0.0959589258, 0)
+Top.Size = UDim2.new(0, 165, 0, 20)
+Top.ZIndex = 2
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Size = UDim2.new(0, 165, 0, 20)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "OTEN CONTROL"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 16.000
+
+Bottom.Name = "Bottom"
+Bottom.Parent = Drag
+Bottom.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+Bottom.BorderSizePixel = 0
+Bottom.Position = UDim2.new(0.0352327153, 0, 0.32568875, 0)
+Bottom.Size = UDim2.new(0, 165, 0, 42)
+
+CashDropped_2.Name = "CashDropped"
+CashDropped_2.Parent = Bottom
+CashDropped_2.BackgroundColor3 = Color3.fromRGB(95, 255, 87)
+CashDropped_2.BackgroundTransparency = 1.000
+CashDropped_2.Position = UDim2.new(-0.000605911016, 0, -0.00705125928, 0)
+CashDropped_2.Size = UDim2.new(0, 165, 0, 42)
+CashDropped_2.Font = Enum.Font.GothamBold
+CashDropped_2.Text = "$0"
+CashDropped_2.TextColor3 = Color3.fromRGB(120, 236, 111)
+CashDropped_2.TextSize = 18.000
+
+-- Scripts:
+
+local function JOYWMD_fake_script() -- CashDropped_2.Update 
+	local script = Instance.new('Script', CashDropped_2)
+
+	local MoneyDrops = game:GetService("Workspace").Ignored.Drop
+	local amount = 0
+	local CashDropped = script.Parent
+	
+	
+	function comma_value(n) -- credit http://richard.warburton.it
+		local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
+		return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
+	end
+	
+	
+	for i,v in pairs(MoneyDrops:GetChildren()) do
+		if v:IsA('Part') and v.ClassName ~= 'MeshPart' and v.Name:match('MoneyDrop') and v:FindFirstChild('BillboardGui'):FindFirstChild('TextLabel') then
+			money = string.gsub(v.BillboardGui.TextLabel.Text,'[$,]','')
+			amount = amount + tonumber(money)
+		end
+	end
+	
+	CashDropped.Text = (comma_value('$'..amount))
+	
+	MoneyDrops.ChildAdded:Connect(function(cash)
+		pcall(function()
+		money = string.gsub(cash:WaitForChild('BillboardGui'):WaitForChild('TextLabel').Text,'[$,]','')
+		amount = amount + tonumber(money)
+		CashDropped.Text = ((comma_value('$'..amount)))
+		end)
+	end)
+	
+	MoneyDrops.ChildRemoved:Connect(function(cash)
+		pcall(function()
+		money = string.gsub(cash:WaitForChild('BillboardGui'):WaitForChild('TextLabel').Text,'[$,]','')
+		amount = amount - tonumber(money)
+		CashDropped.Text = ((comma_value('$'..amount)))
+		end)
+	end)
+	
+end
+coroutine.wrap(JOYWMD_fake_script)()
+local function DRFPEHO_fake_script() -- CashDropped.drag 
+	local script = Instance.new('Script', CashDropped)
+
+	script.Parent.Drag.Draggable = true
+end
+coroutine.wrap(DRFPEHO_fake_script)()
