@@ -1,5 +1,5 @@
--- changed position
 -- 2/10/2023
+-- changed position
 
 local CashDropped = Instance.new("ScreenGui")
 local Drag = Instance.new("Frame")
@@ -61,7 +61,7 @@ CashDropped_2.TextSize = 18.000
 
 -- Scripts:
 
-local function IUFXYMH_fake_script() -- CashDropped_2.Update 
+local function JOYWMD_fake_script() -- CashDropped_2.Update 
 	local script = Instance.new('Script', CashDropped_2)
 
 	local MoneyDrops = game:GetService("Workspace").Ignored.Drop
@@ -101,10 +101,10 @@ local function IUFXYMH_fake_script() -- CashDropped_2.Update
 	end)
 	
 end
-coroutine.wrap(IUFXYMH_fake_script)()
-local function DDSN_fake_script() -- CashDropped.drag 
+coroutine.wrap(JOYWMD_fake_script)()
+local function DRFPEHO_fake_script() -- CashDropped.drag 
 	local script = Instance.new('Script', CashDropped)
 
 	script.Parent.Drag.Draggable = true
 end
-coroutine.wrap(DDSN_fake_script)()
+coroutine.wrap(DRFPEHO_fake_script)()
