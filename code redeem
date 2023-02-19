@@ -1,6 +1,7 @@
 codes = {
     'militarybase',
-    'secretcodeinmain'
+    'secretcodeinmain',
+    '@DAHOOD'
 }
 
 for i,v in ipairs(codes) do
